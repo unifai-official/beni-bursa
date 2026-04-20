@@ -1006,7 +1006,7 @@ const SplashScreen = ({ onDone }) => {
 
   useEffect(() => {
     const leaveTimer = setTimeout(() => setLeaving(true), SPLASH_DURATION - 400);
-    const doneTimer  = setTimeout(() => { try { localStorage.setItem(SPLASH_FLAG, '1'); } catch(e){} onDone(); }, SPLASH_DURATION);
+    const doneTimer  = setTimeout(() => { onDone(); }, SPLASH_DURATION);
     return () => { clearTimeout(leaveTimer); clearTimeout(doneTimer); };
   }, [onDone]);
 
@@ -2312,10 +2312,8 @@ const LessonDetail = ({ lesson, onBack, isDesktop }) => (
 // ============================================================
 
 const App = () => {
-  // Splash runs once per browser. Fallback: show it if localStorage is blocked.
-  const [showSplash, setShowSplash] = useState(() => {
-    try { return localStorage.getItem(SPLASH_FLAG) !== '1'; } catch (e) { return true; }
-  });
+  // Splash shown on every page load/refresh.
+  const [showSplash, setShowSplash] = useState(true);
   const [helpOpen, setHelpOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('stocks');
   const [selectedAsset, setSelectedAsset] = useState(null);
