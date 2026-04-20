@@ -95,6 +95,398 @@ const stocksData = [
     good: ['יציבות גבוהה', 'דיבידנדים קבועים', 'מותג עולמי'],
     bad: ['צמיחה איטית', 'מגמת בריאות נגד סוכר']
   },
+  {
+    id: 11, name: 'AMD', symbol: 'AMD', score: 78, risk: 'medium', price: 172.40,
+    change: 2.3, changeWeek: 4.1, changeMonth: 8.5, changeYear: 38.2,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [150, 158, 165, 160, 170, 168, 175, 173, 170, 172.40],
+    reason: 'יצרנית שבבים מתחרה של אינטל ונבידיה, צומחת בשוק ה-AI',
+    good: ['מעבדים מהירים', 'תחרות חזקה לאינטל', 'כניסה לשוק AI'],
+    bad: ['תחרות מול נבידיה', 'מחיר כבר גבוה']
+  },
+  {
+    id: 12, name: 'אינטל', symbol: 'INTC', score: 48, risk: 'medium', price: 42.10,
+    change: -1.2, changeWeek: -2.8, changeMonth: -5.5, changeYear: -18.3,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [52, 50, 48, 49, 46, 45, 44, 43, 42.5, 42.10],
+    reason: 'ענקית השבבים הוותיקה, מנסה לחזור למקום אחרי פיגור טכנולוגי',
+    good: ['מותג ותיק', 'השקעה במפעלים חדשים', 'דיבידנדים'],
+    bad: ['פיגור בשבבי AI', 'ירידה ברווחים', 'תחרות חזקה']
+  },
+  {
+    id: 13, name: 'פייפאל', symbol: 'PYPL', score: 55, risk: 'medium', price: 72.30,
+    change: 0.8, changeWeek: -1.2, changeMonth: 2.4, changeYear: -12.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [80, 78, 75, 73, 71, 70, 72, 71, 72.5, 72.30],
+    reason: 'שירות תשלומים מקוון, מתמודדת עם תחרות חזקה מאפל ו-Google Pay',
+    good: ['מיליוני משתמשים', 'מותג מוכר', 'רווחיות'],
+    bad: ['תחרות גוברת', 'ירידה במשתמשים פעילים']
+  },
+  {
+    id: 14, name: 'אדובי', symbol: 'ADBE', score: 82, risk: 'low', price: 520.80,
+    change: 1.1, changeWeek: 2.3, changeMonth: 4.8, changeYear: 25.6,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [450, 470, 485, 480, 500, 510, 505, 515, 518, 520.80],
+    reason: 'יצרנית תוכנות יצירה מובילות (Photoshop, Illustrator), עוברת ל-AI',
+    good: ['מונופול בתוכנות יצירה', 'מודל מנוי יציב', 'AI חדש'],
+    bad: ['תחרות מ-Canva', 'מחיר גבוה למשתמשים']
+  },
+  {
+    id: 15, name: 'סיסקו', symbol: 'CSCO', score: 70, risk: 'low', price: 54.20,
+    change: 0.4, changeWeek: 1.1, changeMonth: 2.8, changeYear: 12.3,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [48, 49, 50, 51, 52, 53, 52.5, 53.5, 54, 54.20],
+    reason: 'ענקית ציוד תקשורת ורשתות, יציבה ומשלמת דיבידנדים',
+    good: ['שליטה בשוק רשתות', 'דיבידנדים', 'יציבות'],
+    bad: ['צמיחה איטית', 'תחרות מסין']
+  },
+  {
+    id: 16, name: 'קוואלקום', symbol: 'QCOM', score: 75, risk: 'medium', price: 168.50,
+    change: 1.5, changeWeek: 2.8, changeMonth: 6.2, changeYear: 22.4,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [145, 150, 155, 152, 160, 165, 162, 170, 167, 168.50],
+    reason: 'יצרנית שבבים לסמארטפונים, מובילה בטכנולוגיית 5G',
+    good: ['מוביל ב-5G', 'שותפות עם אפל וסמסונג', 'טכנולוגיה מתקדמת'],
+    bad: ['תלות בשוק הטלפונים', 'תחרות מסין']
+  },
+  {
+    id: 17, name: 'סטארבקס', symbol: 'SBUX', score: 65, risk: 'low', price: 88.40,
+    change: -0.5, changeWeek: 0.3, changeMonth: -2.1, changeYear: -4.8,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [95, 93, 90, 92, 89, 87, 88, 89, 88.5, 88.40],
+    reason: 'רשת בתי קפה עולמית, מתמודדת עם ירידה במכירות בסין',
+    good: ['מותג חזק', 'תוכנית נאמנות', 'פריסה גלובלית'],
+    bad: ['ירידה בסין', 'תחרות מקומית', 'עליית מחירים']
+  },
+  {
+    id: 18, name: 'ברודקום', symbol: 'AVGO', score: 83, risk: 'medium', price: 1420.00,
+    change: 1.8, changeWeek: 3.5, changeMonth: 9.2, changeYear: 72.8,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [1200, 1250, 1300, 1280, 1350, 1380, 1400, 1390, 1425, 1420.00],
+    reason: 'יצרנית שבבים מובילה בתשתיות ענן ו-AI, רוכשת חברות מובילות',
+    good: ['נהנית מגל ה-AI', 'רכישות חכמות', 'רווחיות גבוהה'],
+    bad: ['מחיר גבוה מאוד', 'חוב מרכישות']
+  },
+  {
+    id: 19, name: 'קוסטקו', symbol: 'COST', score: 85, risk: 'low', price: 745.00,
+    change: 0.7, changeWeek: 1.5, changeMonth: 3.8, changeYear: 28.4,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [680, 695, 710, 705, 720, 730, 728, 740, 742, 745.00],
+    reason: 'רשת חברות אחסנאית, נאמנות לקוחות גבוהה וצמיחה יציבה',
+    good: ['נאמנות לקוחות', 'דמי חבר יציבים', 'צמיחה עקבית'],
+    bad: ['מחיר מניה גבוה', 'שולי רווח נמוכים']
+  },
+  {
+    id: 20, name: 'פפסי', symbol: 'PEP', score: 72, risk: 'low', price: 172.60,
+    change: 0.3, changeWeek: 0.8, changeMonth: 2.1, changeYear: 6.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [162, 164, 166, 165, 168, 170, 169, 171, 172, 172.60],
+    reason: 'ענקית משקאות וחטיפים, יציבה ומשלמת דיבידנדים',
+    good: ['גיוון מוצרים', 'דיבידנדים', 'מותג חזק'],
+    bad: ['צמיחה איטית', 'מגמת בריאות']
+  },
+  {
+    id: 21, name: 'אפלייד מטיריאלס', symbol: 'AMAT', score: 78, risk: 'medium', price: 205.00,
+    change: 2.1, changeWeek: 4.3, changeMonth: 8.8, changeYear: 42.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [170, 180, 190, 185, 195, 200, 198, 208, 205, 205.00],
+    reason: 'יצרנית ציוד ליצור שבבים, נהנית מהביקוש לשבבי AI',
+    good: ['ציוד קריטי לתעשייה', 'ביקוש מ-AI', 'שולי רווח גבוהים'],
+    bad: ['תלות במחזור שבבים', 'מתיחות ארה"ב-סין']
+  },
+  {
+    id: 22, name: 'בוקינג', symbol: 'BKNG', score: 80, risk: 'medium', price: 3720.00,
+    change: 1.2, changeWeek: 2.5, changeMonth: 5.8, changeYear: 18.2,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [3200, 3300, 3400, 3380, 3500, 3600, 3650, 3700, 3710, 3720.00],
+    reason: 'פלטפורמת הזמנות חופשות המובילה (Booking.com), רווחיות גבוהה',
+    good: ['שליטה בשוק הנסיעות', 'רווחיות גבוהה', 'התאוששות מקורונה'],
+    bad: ['מחיר מניה יקר מאוד', 'תלות בתיירות']
+  },
+  {
+    id: 23, name: 'מיקרון', symbol: 'MU', score: 72, risk: 'high', price: 112.50,
+    change: 2.8, changeWeek: 5.2, changeMonth: 11.5, changeYear: 52.3,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [85, 92, 100, 95, 105, 108, 110, 115, 111, 112.50],
+    reason: 'יצרנית שבבי זיכרון, נהנית מהביקוש לזיכרון HBM עבור AI',
+    good: ['ביקוש חזק מ-AI', 'טכנולוגיית HBM', 'שיפור במחירים'],
+    bad: ['תנודתיות גבוהה', 'מחזוריות קשה']
+  },
+  {
+    id: 24, name: 'ASML', symbol: 'ASML', score: 82, risk: 'medium', price: 945.00,
+    change: 1.3, changeWeek: 2.8, changeMonth: 6.4, changeYear: 28.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [820, 850, 880, 870, 910, 930, 920, 950, 942, 945.00],
+    reason: 'היצרנית היחידה בעולם של מכונות ליצור שבבים מתקדמים (EUV)',
+    good: ['מונופול ב-EUV', 'ביקוש קריטי', 'רווחיות עצומה'],
+    bad: ['מחיר גבוה מאוד', 'מגבלות ייצוא לסין']
+  },
+  {
+    id: 25, name: 'אייר בי אנד בי', symbol: 'ABNB', score: 68, risk: 'medium', price: 148.20,
+    change: 0.6, changeWeek: 1.8, changeMonth: 3.5, changeYear: 15.8,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [130, 135, 140, 138, 145, 148, 146, 150, 148.5, 148.20],
+    reason: 'פלטפורמת אירוח הבתים המובילה, משנה את תעשיית הנסיעות',
+    good: ['מודל עסקי חכם', 'התרחבות גלובלית', 'קהילת מארחים גדולה'],
+    bad: ['רגולציה מקומית', 'תחרות ממלונות']
+  },
+  {
+    id: 26, name: 'טקסס אינסטרומנטס', symbol: 'TXN', score: 75, risk: 'low', price: 180.30,
+    change: 0.5, changeWeek: 1.2, changeMonth: 3.1, changeYear: 10.4,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [165, 168, 172, 170, 175, 178, 176, 180, 179, 180.30],
+    reason: 'יצרנית שבבים אנלוגיים, שימוש רחב ברכב ותעשייה',
+    good: ['שולי רווח גבוהים', 'דיבידנדים', 'גיוון לקוחות'],
+    bad: ['האטה בתעשיית הרכב', 'מחזוריות']
+  },
+  {
+    id: 27, name: 'אלקטרוניק ארטס', symbol: 'EA', score: 68, risk: 'medium', price: 142.50,
+    change: 0.9, changeWeek: 2.1, changeMonth: 4.3, changeYear: 12.8,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [128, 132, 136, 134, 138, 140, 139, 143, 141, 142.50],
+    reason: 'יצרנית משחקי וידאו (פיפא, סימס), הכנסות יציבות ממשחקי ספורט',
+    good: ['זכיונות ספורט', 'הכנסות חוזרות', 'קהל נאמן'],
+    bad: ['תחרות בתעשיית המשחקים', 'תלות בפיפא']
+  },
+  {
+    id: 28, name: 'מונדלז', symbol: 'MDLZ', score: 70, risk: 'low', price: 68.40,
+    change: 0.2, changeWeek: 0.5, changeMonth: 1.2, changeYear: 4.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [64, 65, 66, 65.5, 67, 68, 67.5, 68.5, 68.2, 68.40],
+    reason: 'יצרנית חטיפים גדולה (אוריאו, מילקה), יציבה ודפנסיבית',
+    good: ['מותגים אהובים', 'דיבידנדים', 'פריסה גלובלית'],
+    bad: ['עליית מחירי חומרי גלם', 'מגמת בריאות']
+  },
+  {
+    id: 29, name: 'פאלנטיר', symbol: 'PLTR', score: 65, risk: 'high', price: 24.80,
+    change: 3.2, changeWeek: 6.5, changeMonth: 15.8, changeYear: 145.3,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [15, 17, 20, 19, 22, 21, 23, 25, 24.2, 24.80],
+    reason: 'חברת ניתוח ביג דאטה ו-AI, חוזים עם ממשלות וארגונים גדולים',
+    good: ['צמיחה מהירה', 'חוזים ממשלתיים', 'פלטפורמת AI'],
+    bad: ['מחיר מוערך יתר', 'תנודתיות קיצונית', 'הוצאות גבוהות']
+  },
+  {
+    id: 30, name: 'מארוול', symbol: 'MRVL', score: 72, risk: 'medium', price: 65.40,
+    change: 1.8, changeWeek: 3.2, changeMonth: 7.8, changeYear: 32.5,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [55, 58, 62, 60, 64, 66, 63, 66.5, 65.2, 65.40],
+    reason: 'יצרנית שבבי תשתית לדאטה סנטרים ותקשורת, נהנית מגל ה-AI',
+    good: ['נהנית מ-AI', 'שותפויות חזקות', 'שבבים מתמחים'],
+    bad: ['תחרות מברודקום', 'תלות בדאטה סנטרים']
+  },
+  {
+    id: 31, name: 'ויזה', symbol: 'V', score: 85, risk: 'low', price: 280.50,
+    change: 0.6, changeWeek: 1.4, changeMonth: 3.2, changeYear: 16.5,
+    exchange: 'NYSE', type: 'stock',
+    history: [250, 255, 260, 258, 265, 272, 270, 278, 279, 280.50],
+    reason: 'רשת תשלומים ענקית, מרוויחה מעמלות על כל קנייה בכרטיס אשראי',
+    good: ['רשת עולמית', 'רווחיות גבוהה', 'צמיחה יציבה'],
+    bad: ['תחרות מדיגיטל', 'רגולציה']
+  },
+  {
+    id: 32, name: 'מאסטרקארד', symbol: 'MA', score: 84, risk: 'low', price: 475.20,
+    change: 0.8, changeWeek: 1.6, changeMonth: 3.8, changeYear: 18.2,
+    exchange: 'NYSE', type: 'stock',
+    history: [420, 430, 445, 440, 455, 465, 462, 472, 473, 475.20],
+    reason: 'מתחרה ראשית של ויזה, רשת תשלומים עולמית ורווחית',
+    good: ['מותג חזק', 'שולי רווח גבוהים', 'צמיחה גלובלית'],
+    bad: ['תחרות מתשלומים דיגיטליים', 'רגולציה']
+  },
+  {
+    id: 33, name: 'ג\'ונסון אנד ג\'ונסון', symbol: 'JNJ', score: 76, risk: 'low', price: 158.30,
+    change: 0.2, changeWeek: 0.5, changeMonth: 1.2, changeYear: 5.8,
+    exchange: 'NYSE', type: 'stock',
+    history: [148, 150, 152, 151, 154, 156, 155, 157, 158, 158.30],
+    reason: 'ענקית פרמצבטיקה וטיפוח, משלמת דיבידנדים 60 שנה ברציפות',
+    good: ['יציבות קיצונית', 'דיבידנדים ותיקים', 'גיוון מוצרים'],
+    bad: ['תביעות משפטיות', 'צמיחה איטית']
+  },
+  {
+    id: 34, name: 'וולמארט', symbol: 'WMT', score: 78, risk: 'low', price: 84.60,
+    change: 0.4, changeWeek: 1.1, changeMonth: 2.5, changeYear: 22.4,
+    exchange: 'NYSE', type: 'stock',
+    history: [70, 73, 76, 75, 78, 81, 80, 83, 84, 84.60],
+    reason: 'רשת הסופרמרקטים הגדולה בעולם, מתרחבת לאיקומרס',
+    good: ['שליטה בשוק הקמעונאות', 'איקומרס צומח', 'מחירים זולים'],
+    bad: ['תחרות מאמזון', 'שולי רווח נמוכים']
+  },
+  {
+    id: 35, name: 'ג\'יי פי מורגן', symbol: 'JPM', score: 80, risk: 'medium', price: 205.80,
+    change: 1.1, changeWeek: 2.3, changeMonth: 4.5, changeYear: 28.6,
+    exchange: 'NYSE', type: 'stock',
+    history: [175, 180, 188, 185, 195, 200, 198, 204, 205, 205.80],
+    reason: 'הבנק הגדול בארה"ב, רווחים חזקים ודיבידנדים',
+    good: ['בנק מוביל', 'רווחיות גבוהה', 'דיבידנדים'],
+    bad: ['רגישות לריבית', 'סיכון בזמן משבר']
+  },
+  {
+    id: 36, name: 'ברקשייר האת\'וויי', symbol: 'BRK.B', score: 83, risk: 'low', price: 430.20,
+    change: 0.3, changeWeek: 1.2, changeMonth: 3.5, changeYear: 18.8,
+    exchange: 'NYSE', type: 'stock',
+    history: [385, 395, 405, 400, 415, 425, 420, 428, 430, 430.20],
+    reason: 'חברת האחזקות של וורן באפט, משקיעה בחברות מובילות',
+    good: ['ניהול אגדי', 'תיק מגוון', 'יציבות'],
+    bad: ['תלות בבאפט הזקן', 'גודל מגביל צמיחה']
+  },
+  {
+    id: 37, name: 'פייזר', symbol: 'PFE', score: 55, risk: 'medium', price: 28.40,
+    change: -0.5, changeWeek: -1.2, changeMonth: -3.2, changeYear: -15.5,
+    exchange: 'NYSE', type: 'stock',
+    history: [35, 33, 31, 32, 30, 29, 29.5, 28, 28.5, 28.40],
+    reason: 'חברת תרופות ותיקה, ירידה חדה אחרי סיום גאות הקורונה',
+    good: ['מותג רפואי', 'דיבידנדים גבוהים', 'פיתוח תרופות'],
+    bad: ['ירידה במכירות קורונה', 'תחרות', 'ירידת מחיר']
+  },
+  {
+    id: 38, name: 'מקדונלדס', symbol: 'MCD', score: 77, risk: 'low', price: 290.50,
+    change: 0.2, changeWeek: 0.8, changeMonth: 2.2, changeYear: 8.5,
+    exchange: 'NYSE', type: 'stock',
+    history: [268, 272, 278, 275, 282, 287, 285, 289, 290, 290.50],
+    reason: 'רשת המזון המהיר הגדולה בעולם, מותג חזק ודיבידנדים יציבים',
+    good: ['מותג עולמי', 'דיבידנדים יציבים', 'מודל זיכיונות'],
+    bad: ['מגמת בריאות', 'תחרות', 'עלויות עובדים']
+  },
+  {
+    id: 39, name: 'טבע', symbol: 'TEVA', score: 58, risk: 'medium', price: 52.80,
+    change: 1.2, changeWeek: 2.5, changeMonth: 5.8, changeYear: 22.4,
+    exchange: 'TASE', type: 'stock',
+    history: [42, 45, 48, 46, 50, 52, 51, 53, 52, 52.80],
+    reason: 'ענקית התרופות הישראלית, מתמקדת בתרופות גנריות והתאוששות מחוב',
+    good: ['הפחתת חוב', 'צנרת תרופות חדשה', 'נוכחות גלובלית'],
+    bad: ['חוב גבוה היסטורית', 'תחרות בגנריקה']
+  },
+  {
+    id: 40, name: 'בנק לאומי', symbol: 'LUMI', score: 72, risk: 'low', price: 38.40,
+    change: 0.5, changeWeek: 1.2, changeMonth: 2.8, changeYear: 15.5,
+    exchange: 'TASE', type: 'stock',
+    history: [33, 34, 36, 35, 37, 38, 37.5, 38.5, 38.2, 38.40],
+    reason: 'אחד משני הבנקים הגדולים בישראל, רווחי ויציב',
+    good: ['רווחיות גבוהה', 'דיבידנדים', 'יציבות'],
+    bad: ['תחרות', 'רגישות לריבית']
+  },
+  {
+    id: 41, name: 'בנק הפועלים', symbol: 'POLI', score: 70, risk: 'low', price: 40.20,
+    change: 0.4, changeWeek: 1.0, changeMonth: 2.5, changeYear: 14.2,
+    exchange: 'TASE', type: 'stock',
+    history: [35, 36, 38, 37, 39, 40, 39.5, 40.5, 40, 40.20],
+    reason: 'הבנק הגדול בישראל, מעמד שוק חזק ורווחים קבועים',
+    good: ['בנק מוביל', 'רווחיות', 'דיבידנדים'],
+    bad: ['רגולציה', 'תחרות פינטק']
+  },
+  {
+    id: 42, name: 'אלביט מערכות', symbol: 'ESLT', score: 82, risk: 'medium', price: 920.00,
+    change: 1.8, changeWeek: 3.5, changeMonth: 8.5, changeYear: 48.5,
+    exchange: 'TASE', type: 'stock',
+    history: [700, 750, 820, 800, 860, 890, 880, 925, 918, 920.00],
+    reason: 'חברת הביטחון הגדולה בישראל, גידול בביקוש עולמי למערכות הגנה',
+    good: ['ביקוש גלובלי גבוה', 'טכנולוגיה מובילה', 'צמיחה חזקה'],
+    bad: ['תלות בסכסוכים', 'תנודתיות גיאופוליטית']
+  },
+  {
+    id: 43, name: 'נייס', symbol: 'NICE', score: 76, risk: 'medium', price: 720.50,
+    change: 1.2, changeWeek: 2.5, changeMonth: 5.2, changeYear: 22.8,
+    exchange: 'TASE', type: 'stock',
+    history: [620, 650, 680, 670, 695, 710, 705, 722, 718, 720.50],
+    reason: 'חברת תוכנה ישראלית לניתוח שיחות ו-AI לשירות לקוחות',
+    good: ['מובילה בתחום', 'AI מתקדם', 'לקוחות גלובליים'],
+    bad: ['תחרות גוברת', 'תלות בשוק חו"ל']
+  },
+  {
+    id: 44, name: 'כיל', symbol: 'ICL', score: 62, risk: 'medium', price: 22.80,
+    change: 0.8, changeWeek: 2.1, changeMonth: 3.5, changeYear: -8.4,
+    exchange: 'TASE', type: 'stock',
+    history: [25, 24, 23, 23.5, 22, 21.5, 22.5, 22, 22.5, 22.80],
+    reason: 'מייצרת דשנים וכימיקלים, מושפעת ממחירי סחורות עולמיים',
+    good: ['משאבי אשלג', 'ביקוש חקלאי', 'דיבידנדים'],
+    bad: ['תנודתיות מחירי סחורות', 'רגולציה']
+  },
+  {
+    id: 45, name: 'שטראוס גרופ', symbol: 'STRS', score: 68, risk: 'low', price: 95.50,
+    change: 0.3, changeWeek: 0.8, changeMonth: 1.8, changeYear: 6.5,
+    exchange: 'TASE', type: 'stock',
+    history: [88, 90, 92, 91, 93, 95, 94, 96, 95.2, 95.50],
+    reason: 'חברת מזון ישראלית, מותגים מוכרים כמו במבה, ביסלי, אלפא',
+    good: ['מותגים אהובים', 'נוכחות חזקה', 'יציבות'],
+    bad: ['תחרות', 'עליית מחירי חומרי גלם']
+  },
+  {
+    id: 46, name: 'בזק', symbol: 'BEZQ', score: 60, risk: 'medium', price: 5.20,
+    change: -0.3, changeWeek: 0.5, changeMonth: -1.2, changeYear: 8.5,
+    exchange: 'TASE', type: 'stock',
+    history: [4.8, 4.9, 5.1, 5.0, 5.2, 5.3, 5.1, 5.25, 5.15, 5.20],
+    reason: 'חברת התקשורת הוותיקה בישראל, מתמודדת עם תחרות חזקה',
+    good: ['תשתית מובילה', 'דיבידנדים', 'מותג מוכר'],
+    bad: ['תחרות חזקה', 'ירידה בנתח שוק']
+  },
+  {
+    id: 47, name: 'שופרסל', symbol: 'SAE', score: 65, risk: 'low', price: 23.40,
+    change: 0.4, changeWeek: 1.2, changeMonth: 2.8, changeYear: 12.5,
+    exchange: 'TASE', type: 'stock',
+    history: [20, 21, 22, 21.5, 22.5, 23, 22.8, 23.5, 23.2, 23.40],
+    reason: 'רשת הסופרמרקטים הגדולה בישראל, מתרחבת לאיקומרס',
+    good: ['שליטה בשוק', 'פריסה ארצית', 'איקומרס'],
+    bad: ['תחרות חזקה', 'שולי רווח נמוכים']
+  },
+  {
+    id: 48, name: 'מזרחי טפחות', symbol: 'MZTF', score: 74, risk: 'low', price: 178.50,
+    change: 0.6, changeWeek: 1.4, changeMonth: 3.2, changeYear: 18.8,
+    exchange: 'TASE', type: 'stock',
+    history: [150, 155, 162, 160, 168, 173, 171, 177, 178, 178.50],
+    reason: 'הבנק השלישי בישראל בגודלו, צמיחה חזקה ברווחים',
+    good: ['צמיחה חזקה', 'יעילות תפעולית', 'דיבידנדים'],
+    bad: ['תחרות', 'רגישות לריבית']
+  },
+  { id: 49, name: 'אורקל', symbol: 'ORCL', score: 78, risk: 'low', price: 145.20, change: 0.8, changeWeek: 2.2, changeMonth: 5.5, changeYear: 32.5, exchange: 'NYSE', type: 'stock', history: [120, 125, 132, 130, 138, 142, 140, 146, 144, 145.20], reason: 'ענקית תוכנות מאגרי מידע, מתרחבת לענן ו-AI', good: ['מוביל במאגרי מידע', 'תשתית קריטית', 'דיבידנדים'], bad: ['תחרות מענן', 'צמיחה מתונה'] },
+  { id: 50, name: 'IBM', symbol: 'IBM', score: 65, risk: 'low', price: 220.30, change: 0.3, changeWeek: 1.1, changeMonth: 3.2, changeYear: 22.5, exchange: 'NYSE', type: 'stock', history: [195, 200, 208, 205, 212, 218, 215, 222, 220, 220.30], reason: 'ענקית טכנולוגיה ותיקה, מתמקדת בענן היברידי ו-AI', good: ['מותג ותיק', 'דיבידנדים גבוהים', 'AI עסקי'], bad: ['ירידה בעסקים מסורתיים', 'תחרות'] },
+  { id: 51, name: 'סיילספורס', symbol: 'CRM', score: 76, risk: 'medium', price: 340.80, change: 1.2, changeWeek: 2.8, changeMonth: 5.2, changeYear: 28.4, exchange: 'NYSE', type: 'stock', history: [280, 295, 310, 305, 320, 330, 328, 342, 340, 340.80], reason: 'ענקית תוכנות CRM, שולטת בשוק ניהול לקוחות עסקי', good: ['שליטה בשוק CRM', 'צמיחה ברווחיות', 'AI חדש'], bad: ['תחרות מגוברת', 'האטה בצמיחה'] },
+  { id: 52, name: 'אובר', symbol: 'UBER', score: 72, risk: 'medium', price: 78.50, change: 1.5, changeWeek: 3.2, changeMonth: 6.8, changeYear: 38.5, exchange: 'NYSE', type: 'stock', history: [58, 62, 68, 65, 72, 76, 74, 80, 78, 78.50], reason: 'פלטפורמת הסעות ומשלוחים מובילה, הגיעה לרווחיות לראשונה', good: ['רווחיות לראשונה', 'שליטה בשוק הסעות', 'צמיחה גלובלית'], bad: ['תחרות מקומית', 'רגולציה לנהגים'] },
+  { id: 53, name: 'ספוטיפיי', symbol: 'SPOT', score: 74, risk: 'medium', price: 305.40, change: 1.8, changeWeek: 3.5, changeMonth: 7.2, changeYear: 68.5, exchange: 'NYSE', type: 'stock', history: [185, 210, 245, 235, 270, 290, 285, 310, 305, 305.40], reason: 'פלטפורמת הסטרימינג המוזיקלי המובילה, הגיעה סוף סוף לרווחיות', good: ['מוביל בשוק', 'פודקאסטים', 'רווחיות חדשה'], bad: ['תחרות מאפל ויוטיוב', 'תלות בחברות תקליטים'] },
+  { id: 54, name: 'זום', symbol: 'ZM', score: 55, risk: 'medium', price: 85.20, change: -1.2, changeWeek: -2.5, changeMonth: -5.8, changeYear: -18.5, exchange: 'NASDAQ', type: 'stock', history: [105, 100, 95, 97, 90, 88, 89, 85, 86, 85.20], reason: 'פלטפורמת וידאו שפרצה בקורונה, מתמודדת עם תחרות מטימס ו-Google Meet', good: ['מותג מוכר', 'מזומנים רבים'], bad: ['תחרות חזקה', 'ירידה בצמיחה', 'היצע גדול'] },
+  { id: 55, name: 'בלוק', symbol: 'SQ', score: 62, risk: 'high', price: 88.50, change: 2.1, changeWeek: 4.5, changeMonth: 8.8, changeYear: 35.2, exchange: 'NYSE', type: 'stock', history: [65, 72, 80, 78, 85, 90, 87, 92, 88, 88.50], reason: 'חברת התשלומים של ג\'ק דורסי (Square + Cash App), מושקעת גם בביטקוין', good: ['מוצרי פינטק חדשניים', 'קאש אפ צומח', 'חשיפה לביטקוין'], bad: ['תחרות חזקה', 'תלות בקריפטו', 'רווחיות לא יציבה'] },
+  { id: 56, name: 'רוקו', symbol: 'ROKU', score: 58, risk: 'high', price: 72.40, change: -2.5, changeWeek: -4.8, changeMonth: -8.5, changeYear: -22.4, exchange: 'NASDAQ', type: 'stock', history: [95, 88, 82, 84, 78, 75, 76, 73, 74, 72.40], reason: 'פלטפורמת סטרימינג לטלוויזיות, תחרות גוברת מענקים', good: ['מובילה בפלטפורמת טלוויזיה', 'פרסום דיגיטלי'], bad: ['תחרות מאמזון ונטפליקס', 'ירידה בצמיחה'] },
+  { id: 57, name: 'קראודסטרייק', symbol: 'CRWD', score: 80, risk: 'medium', price: 320.50, change: 1.5, changeWeek: 3.8, changeMonth: 9.5, changeYear: 85.6, exchange: 'NASDAQ', type: 'stock', history: [195, 225, 260, 250, 290, 310, 305, 325, 318, 320.50], reason: 'מובילה בסייבר אבטחה מבוסס ענן, צמיחה מהירה מאוד', good: ['מובילה בסייבר', 'צמיחה מהירה', 'ביקוש גובר'], bad: ['מחיר גבוה', 'תחרות מתחזקת'] },
+  { id: 58, name: 'סנואופלייק', symbol: 'SNOW', score: 70, risk: 'medium', price: 155.80, change: 0.8, changeWeek: 2.2, changeMonth: 4.5, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [135, 140, 148, 145, 152, 158, 155, 160, 156, 155.80], reason: 'מחסן נתונים מבוסס ענן, שימוש גדל על ידי ארגונים', good: ['טכנולוגיה מובילה', 'צמיחה חזקה', 'מעבר לענן'], bad: ['מחיר גבוה', 'הפסדים', 'תחרות'] },
+  { id: 59, name: 'MongoDB', symbol: 'MDB', score: 75, risk: 'medium', price: 285.40, change: 2.2, changeWeek: 4.8, changeMonth: 10.2, changeYear: 58.5, exchange: 'NASDAQ', type: 'stock', history: [195, 215, 245, 235, 260, 275, 270, 290, 282, 285.40], reason: 'מאגר נתונים מבוסס מסמכים מוביל, פופולרי בקרב מפתחים', good: ['אהוב על מפתחים', 'צמיחה חזקה', 'Atlas ענן'], bad: ['תחרות מאמזון', 'מחיר יקר'] },
+  { id: 60, name: 'קלאודפלייר', symbol: 'NET', score: 72, risk: 'medium', price: 105.60, change: 1.8, changeWeek: 3.5, changeMonth: 8.5, changeYear: 42.5, exchange: 'NYSE', type: 'stock', history: [72, 80, 88, 85, 95, 100, 98, 108, 104, 105.60], reason: 'ספקית שירותי CDN ואבטחה, מאיצה את אתרי האינטרנט', good: ['תשתית קריטית לאינטרנט', 'צמיחה גלובלית', 'מוצרים חדשים'], bad: ['תחרות מאמזון', 'תמחור גבוה'] },
+  { id: 61, name: 'אטלסיאן', symbol: 'TEAM', score: 70, risk: 'medium', price: 240.30, change: 0.5, changeWeek: 1.8, changeMonth: 3.5, changeYear: 8.5, exchange: 'NASDAQ', type: 'stock', history: [215, 220, 228, 225, 232, 238, 236, 242, 240, 240.30], reason: 'יצרנית Jira ו-Confluence, מובילה בכלי עבודה למפתחים וצוותים', good: ['שליטה בכלי פיתוח', 'לקוחות ארגוניים', 'ענן צומח'], bad: ['תחרות מ-GitHub ו-Notion', 'האטה'] },
+  { id: 62, name: 'דורדאש', symbol: 'DASH', score: 68, risk: 'medium', price: 155.20, change: 1.8, changeWeek: 3.5, changeMonth: 7.8, changeYear: 48.5, exchange: 'NASDAQ', type: 'stock', history: [105, 115, 130, 125, 140, 148, 145, 158, 154, 155.20], reason: 'פלטפורמת משלוחי אוכל מובילה בארה"ב, צמיחה מתמשכת', good: ['שליטה בשוק האמריקאי', 'צמיחה ברווחיות', 'DashPass'], bad: ['תחרות מאובר איטס', 'שולי רווח נמוכים'] },
+  { id: 63, name: 'רובלוקס', symbol: 'RBLX', score: 60, risk: 'high', price: 42.50, change: 2.8, changeWeek: 5.5, changeMonth: 12.5, changeYear: 45.8, exchange: 'NYSE', type: 'stock', history: [28, 32, 36, 34, 38, 41, 40, 44, 42, 42.50], reason: 'פלטפורמת משחקים פופולרית במיוחד בקרב ילדים', good: ['קהל ילדים אדיר', 'כלכלה וירטואלית', 'מטאוורס'], bad: ['חששות בטיחות ילדים', 'הפסדים כרוניים'] },
+  { id: 64, name: 'אטסי', symbol: 'ETSY', score: 55, risk: 'medium', price: 65.30, change: -1.5, changeWeek: -2.8, changeMonth: -5.5, changeYear: -12.5, exchange: 'NASDAQ', type: 'stock', history: [78, 74, 70, 72, 68, 66, 67, 64, 66, 65.30], reason: 'שוק למוצרים עבודת יד ויצירתיים, האטה אחרי גיאות קורונה', good: ['נישה ייחודית', 'קהילת יוצרים', 'מותג מוכר'], bad: ['תחרות מאמזון', 'ירידה במכירות'] },
+  { id: 65, name: 'eBay', symbol: 'EBAY', score: 62, risk: 'low', price: 55.40, change: 0.3, changeWeek: 1.1, changeMonth: 2.8, changeYear: 12.5, exchange: 'NASDAQ', type: 'stock', history: [48, 50, 52, 51, 53, 55, 54, 56, 55, 55.40], reason: 'פלטפורמת מסחר מקוונת ותיקה, התאוששות אחרי שנים של קיפאון', good: ['מותג מוכר', 'רכישות חוזרות', 'דיבידנדים'], bad: ['תחרות מאמזון', 'צמיחה איטית'] },
+  { id: 66, name: 'ריביאן', symbol: 'RIVN', score: 45, risk: 'high', price: 12.40, change: -2.8, changeWeek: -5.5, changeMonth: -12.5, changeYear: -35.8, exchange: 'NASDAQ', type: 'stock', history: [22, 20, 18, 19, 15, 14, 14.5, 12.5, 13, 12.40], reason: 'יצרנית רכב חשמלי צעירה, מתמודדת עם הפסדים ותחרות חזקה', good: ['שותפות עם אמזון', 'רכבי שטח חשמליים', 'טכנולוגיה'], bad: ['הפסדים כבדים', 'שריפת מזומנים', 'תחרות'] },
+  { id: 67, name: 'פורד', symbol: 'F', score: 52, risk: 'medium', price: 12.10, change: -0.8, changeWeek: -1.8, changeMonth: -3.5, changeYear: -8.5, exchange: 'NYSE', type: 'stock', history: [14, 13.5, 13, 13.2, 12.5, 12.2, 12.4, 12, 12.2, 12.10], reason: 'יצרנית רכב אמריקאית ותיקה, מעבר איטי לרכב חשמלי', good: ['מותג חזק', 'דיבידנדים', 'רכבי פנים מפורסמים'], bad: ['מעבר איטי לחשמלי', 'הפסדים ב-EV', 'תחרות מסינית'] },
+  { id: 68, name: 'ג\'נרל מוטורס', symbol: 'GM', score: 58, risk: 'medium', price: 45.30, change: 0.4, changeWeek: 1.2, changeMonth: 2.8, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [38, 40, 42, 41, 43, 44, 43.5, 45.5, 45, 45.30], reason: 'יצרנית רכב אמריקאית גדולה, מעבר הדרגתי לחשמלי', good: ['נוכחות גלובלית', 'רכבי חשמליים חדשים', 'דיבידנדים'], bad: ['תחרות מטסלה', 'עלויות מעבר'] },
+  { id: 69, name: 'בואינג', symbol: 'BA', score: 48, risk: 'high', price: 195.80, change: -1.8, changeWeek: -3.5, changeMonth: -8.5, changeYear: -22.5, exchange: 'NYSE', type: 'stock', history: [248, 235, 220, 225, 210, 205, 200, 190, 198, 195.80], reason: 'יצרנית מטוסים מובילה, סובלת מבעיות איכות וטרגדיות', good: ['דואופוליה עם איירבאס', 'צבר הזמנות', 'פוטנציאל התאוששות'], bad: ['בעיות איכות קשות', 'תביעות', 'הפסדים'] },
+  { id: 70, name: 'לוקהיד מרטין', symbol: 'LMT', score: 80, risk: 'low', price: 475.20, change: 0.8, changeWeek: 2.2, changeMonth: 4.5, changeYear: 18.5, exchange: 'NYSE', type: 'stock', history: [420, 430, 445, 440, 455, 465, 462, 478, 475, 475.20], reason: 'ענקית ביטחון אמריקאית, מייצרת מטוסי F-35 ומערכות טילים', good: ['חוזים ממשלתיים', 'ביקוש ביטחוני גלובלי', 'דיבידנדים'], bad: ['תלות בתקציבי ממשלה', 'תחרות'] },
+  { id: 71, name: 'קטרפילר', symbol: 'CAT', score: 76, risk: 'medium', price: 360.50, change: 1.2, changeWeek: 2.5, changeMonth: 5.8, changeYear: 28.5, exchange: 'NYSE', type: 'stock', history: [300, 315, 330, 325, 340, 350, 348, 362, 358, 360.50], reason: 'יצרנית ציוד כבד לבנייה וכרייה, תלויה בכלכלה גלובלית', good: ['מותג עולמי', 'דיבידנדים', 'ביקוש מתשתיות'], bad: ['מחזוריות כלכלית', 'תחרות מסינית'] },
+  { id: 72, name: 'אמריקן אקספרס', symbol: 'AXP', score: 78, risk: 'low', price: 225.80, change: 0.6, changeWeek: 1.5, changeMonth: 3.8, changeYear: 22.5, exchange: 'NYSE', type: 'stock', history: [190, 200, 212, 208, 220, 225, 222, 228, 225, 225.80], reason: 'חברת כרטיסי אשראי יוקרתית, מתמקדת בלקוחות פרימיום', good: ['לקוחות עשירים', 'נאמנות גבוהה', 'דיבידנדים'], bad: ['תחרות מוויזה ומאסטרקארד', 'רגישות לכלכלה'] },
+  { id: 73, name: 'גולדמן זאקס', symbol: 'GS', score: 75, risk: 'medium', price: 450.30, change: 1.2, changeWeek: 2.8, changeMonth: 5.5, changeYear: 28.5, exchange: 'NYSE', type: 'stock', history: [380, 395, 410, 405, 425, 440, 435, 455, 448, 450.30], reason: 'בנק השקעות יוקרתי, מוביל בהנפקות ורכישות', good: ['מותג יוקרתי', 'רווחיות גבוהה', 'דיבידנדים'], bad: ['תנודתיות', 'תלות בשווקים'] },
+  { id: 74, name: 'מורגן סטנלי', symbol: 'MS', score: 74, risk: 'medium', price: 95.80, change: 0.8, changeWeek: 1.8, changeMonth: 4.2, changeYear: 18.5, exchange: 'NYSE', type: 'stock', history: [82, 85, 90, 88, 92, 94, 93, 97, 95, 95.80], reason: 'בנק השקעות גדול, מוביל בניהול הון', good: ['ניהול הון גדל', 'דיבידנדים', 'גיוון'], bad: ['תחרות', 'תלות בשוק']  },
+  { id: 75, name: 'וולס פארגו', symbol: 'WFC', score: 68, risk: 'medium', price: 58.40, change: 0.4, changeWeek: 1.2, changeMonth: 2.8, changeYear: 15.5, exchange: 'NYSE', type: 'stock', history: [50, 52, 54, 53, 55, 57, 56, 59, 58, 58.40], reason: 'בנק קמעונאי ותיק, מתאושש משערוריות עבר', good: ['פריסה רחבה', 'התאוששות', 'דיבידנדים'], bad: ['שערוריות עבר', 'מגבלות רגולציה'] },
+  { id: 76, name: 'בנק אוף אמריקה', symbol: 'BAC', score: 72, risk: 'medium', price: 38.20, change: 0.5, changeWeek: 1.5, changeMonth: 3.2, changeYear: 18.5, exchange: 'NYSE', type: 'stock', history: [32, 33, 35, 34, 36, 37, 36.5, 38.5, 38, 38.20], reason: 'הבנק השני בארה"ב, רווחיות חזקה ודיבידנדים', good: ['בנק גדול ויציב', 'דיבידנדים', 'פריסה רחבה'], bad: ['רגישות לריבית', 'תחרות'] },
+  { id: 77, name: 'בלאקרוק', symbol: 'BLK', score: 82, risk: 'low', price: 850.50, change: 0.6, changeWeek: 1.8, changeMonth: 4.2, changeYear: 22.5, exchange: 'NYSE', type: 'stock', history: [720, 750, 790, 780, 810, 830, 825, 855, 848, 850.50], reason: 'מנהלת הנכסים הגדולה בעולם, 10+ טריליון דולר בניהול', good: ['מנהלת נכסים ענקית', 'iShares ETFs', 'דיבידנדים'], bad: ['תלות בשווקים', 'ביקורת על ESG'] },
+  { id: 78, name: 'AT&T', symbol: 'T', score: 60, risk: 'low', price: 18.40, change: 0.3, changeWeek: 0.8, changeMonth: 1.8, changeYear: 8.5, exchange: 'NYSE', type: 'stock', history: [16, 16.5, 17, 17.2, 17.8, 18, 17.9, 18.5, 18.3, 18.40], reason: 'ענקית תקשורת אמריקאית, דיבידנדים גבוהים אחרי פיצול מדיה', good: ['דיבידנדים גבוהים', 'תשתית 5G', 'יציבות'], bad: ['חוב גבוה', 'צמיחה איטית', 'תחרות'] },
+  { id: 79, name: 'ורייזון', symbol: 'VZ', score: 65, risk: 'low', price: 42.30, change: 0.2, changeWeek: 0.5, changeMonth: 1.5, changeYear: 8.5, exchange: 'NYSE', type: 'stock', history: [38, 39, 40, 40.5, 41, 42, 41.5, 42.8, 42.2, 42.30], reason: 'ענקית תקשורת, דיבידנדים גבוהים ויציבים', good: ['דיבידנדים גבוהים', '5G מוביל', 'רשת איכותית'], bad: ['חוב', 'תחרות מ-T-Mobile'] },
+  { id: 80, name: 'T-Mobile', symbol: 'TMUS', score: 78, risk: 'low', price: 195.80, change: 0.8, changeWeek: 2.1, changeMonth: 4.5, changeYear: 22.5, exchange: 'NASDAQ', type: 'stock', history: [165, 172, 180, 178, 185, 192, 190, 198, 194, 195.80], reason: 'חברת סלולר צומחת, ניצחה את AT&T ווריזון ברשת 5G', good: ['5G מוביל', 'צמיחה בלקוחות', 'חדשנות'], bad: ['תחרות מתגברת', 'חוב']  },
+  { id: 81, name: 'קומקאסט', symbol: 'CMCSA', score: 65, risk: 'low', price: 42.60, change: 0.3, changeWeek: 0.8, changeMonth: 1.8, changeYear: 8.5, exchange: 'NASDAQ', type: 'stock', history: [38, 39, 40, 40.5, 41, 42, 41.5, 43, 42.5, 42.60], reason: 'ענקית תקשורת ובידור (NBCUniversal, Peacock)', good: ['נוכחות רחבה', 'דיבידנדים', 'גיוון'], bad: ['ירידה בטלוויזיה כבלים', 'תחרות סטרימינג'] },
+  { id: 82, name: 'שירסיוו נאו', symbol: 'NOW', score: 83, risk: 'medium', price: 780.40, change: 1.5, changeWeek: 3.2, changeMonth: 7.5, changeYear: 42.5, exchange: 'NYSE', type: 'stock', history: [580, 620, 670, 650, 710, 750, 740, 790, 778, 780.40], reason: 'פלטפורמה לאוטומציית עבודה עסקית, צמיחה מהירה ו-AI', good: ['צמיחה חזקה', 'לקוחות ארגוניים', 'AI משולב'], bad: ['מחיר גבוה', 'תחרות'] },
+  { id: 83, name: 'אינטואיט', symbol: 'INTU', score: 80, risk: 'low', price: 680.20, change: 0.8, changeWeek: 2.1, changeMonth: 4.5, changeYear: 18.5, exchange: 'NASDAQ', type: 'stock', history: [580, 600, 625, 615, 640, 660, 655, 685, 680, 680.20], reason: 'יצרנית QuickBooks ו-TurboTax, שולטת בשוק תוכנות עסקים קטנים', good: ['שליטה בשוק', 'מנוי יציב', 'AI חדש'], bad: ['מחיר גבוה', 'תחרות מחדשות'] },
+  { id: 84, name: 'אקסון מוביל', symbol: 'XOM', score: 72, risk: 'medium', price: 115.80, change: 0.8, changeWeek: 2.2, changeMonth: 5.2, changeYear: 18.5, exchange: 'NYSE', type: 'stock', history: [102, 105, 110, 108, 112, 115, 113, 118, 116, 115.80], reason: 'ענקית נפט וגז אמריקאית, דיבידנדים גבוהים וחוזקה תפעולית', good: ['דיבידנדים גבוהים', 'יעילות תפעולית', 'תזרים מזומנים'], bad: ['מעבר לאנרגיה ירוקה', 'תלות במחירי נפט'] },
+  { id: 85, name: 'שברון', symbol: 'CVX', score: 70, risk: 'medium', price: 155.20, change: 0.5, changeWeek: 1.5, changeMonth: 3.5, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [140, 143, 148, 145, 150, 153, 152, 157, 155, 155.20], reason: 'ענקית אנרגיה אמריקאית, משלמת דיבידנדים 35+ שנה ברציפות', good: ['דיבידנדים עקביים', 'משמעת פיננסית'], bad: ['תלות בנפט', 'לחץ סביבתי'] },
+  { id: 86, name: 'יונייטדהלת\'', symbol: 'UNH', score: 80, risk: 'low', price: 520.40, change: 0.6, changeWeek: 1.5, changeMonth: 3.5, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [465, 475, 490, 485, 500, 512, 508, 525, 520, 520.40], reason: 'חברת ביטוח הבריאות הגדולה בארה"ב, צמיחה יציבה', good: ['מוביל בביטוח בריאות', 'צמיחה יציבה', 'דיבידנדים'], bad: ['רגולציה', 'ביקורת ציבורית'] },
+  { id: 87, name: 'אלי לילי', symbol: 'LLY', score: 85, risk: 'medium', price: 765.30, change: 1.8, changeWeek: 4.2, changeMonth: 9.5, changeYear: 62.5, exchange: 'NYSE', type: 'stock', history: [525, 580, 640, 620, 690, 730, 720, 770, 760, 765.30], reason: 'ענקית תרופות, מובילה עם תרופת ההרזיה Mounjaro/Zepbound', good: ['תרופות הרזיה מוצלחות', 'צמיחה עצומה', 'חדשנות'], bad: ['מחיר גבוה מאוד', 'תחרות מנובו נורדיסק'] },
+  { id: 88, name: 'מרק', symbol: 'MRK', score: 76, risk: 'low', price: 122.50, change: 0.5, changeWeek: 1.2, changeMonth: 3.2, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [108, 112, 116, 114, 118, 120, 119, 124, 122, 122.50], reason: 'חברת תרופות ותיקה, מובילה עם תרופת הסרטן Keytruda', good: ['Keytruda מצליח', 'דיבידנדים', 'מחקר חזק'], bad: ['פג תוקף פטנטים בעתיד', 'תחרות'] },
+  { id: 89, name: 'אבבי', symbol: 'ABBV', score: 74, risk: 'low', price: 172.30, change: 0.4, changeWeek: 1.1, changeMonth: 2.8, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [155, 160, 165, 163, 168, 170, 169, 174, 172, 172.30], reason: 'חברת תרופות, מעבר מ-Humira לתרופות חדשות', good: ['דיבידנדים גבוהים', 'צנרת תרופות', 'רווחיות'], bad: ['ירידת Humira', 'תחרות גנרית'] },
+  { id: 90, name: 'הום דיפו', symbol: 'HD', score: 78, risk: 'low', price: 380.50, change: 0.6, changeWeek: 1.8, changeMonth: 4.2, changeYear: 18.5, exchange: 'NYSE', type: 'stock', history: [325, 340, 355, 350, 365, 375, 372, 385, 380, 380.50], reason: 'ענקית חנויות כלי בית אמריקאית, מובילה בשוק השיפוצים', good: ['מותג מוביל', 'דיבידנדים', 'פריסה רחבה'], bad: ['תלות בשוק הדיור', 'תחרות'] },
+  { id: 91, name: 'טרגט', symbol: 'TGT', score: 68, risk: 'medium', price: 165.40, change: 0.4, changeWeek: 1.2, changeMonth: 2.8, changeYear: 8.5, exchange: 'NYSE', type: 'stock', history: [148, 152, 158, 155, 160, 163, 162, 167, 165, 165.40], reason: 'רשת קמעונאות פופולרית, מתחרה בוולמארט ואמזון', good: ['מותג אהוב', 'מותג פרטי', 'דיבידנדים'], bad: ['תחרות חזקה', 'ירידה ברווחים'] },
+  { id: 92, name: 'דטהדוג', symbol: 'DDOG', score: 75, risk: 'medium', price: 125.30, change: 1.5, changeWeek: 3.2, changeMonth: 7.5, changeYear: 38.5, exchange: 'NASDAQ', type: 'stock', history: [92, 100, 110, 105, 115, 122, 120, 128, 124, 125.30], reason: 'פלטפורמת ניטור וניתוח תשתיות ענן, צמיחה מהירה', good: ['צמיחה חזקה', 'לקוחות ארגוניים', 'הרחבת פלטפורמה'], bad: ['מחיר יקר', 'תחרות'] },
+  { id: 93, name: 'וורקדיי', symbol: 'WDAY', score: 72, risk: 'medium', price: 255.80, change: 0.8, changeWeek: 2.1, changeMonth: 4.5, changeYear: 18.5, exchange: 'NASDAQ', type: 'stock', history: [220, 225, 235, 230, 240, 250, 248, 258, 254, 255.80], reason: 'תוכנה לניהול משאבי אנוש וכספים בענן לארגונים', good: ['לקוחות ארגוניים גדולים', 'מנוי יציב'], bad: ['תחרות מסיילספורס ומאוראקל', 'האטה'] },
+  { id: 94, name: 'אוקטה', symbol: 'OKTA', score: 62, risk: 'medium', price: 95.20, change: 1.2, changeWeek: 2.5, changeMonth: 5.5, changeYear: 28.5, exchange: 'NASDAQ', type: 'stock', history: [72, 78, 85, 82, 90, 94, 92, 97, 94, 95.20], reason: 'פלטפורמת זיהוי וניהול גישה לארגונים', good: ['תשתית קריטית', 'צמיחה ברווחיות'], bad: ['פריצת אבטחה 2023', 'תחרות'] },
+  { id: 95, name: 'נובו נורדיסק', symbol: 'NVO', score: 82, risk: 'medium', price: 125.60, change: 1.5, changeWeek: 3.5, changeMonth: 8.5, changeYear: 48.5, exchange: 'NYSE', type: 'stock', history: [85, 95, 108, 105, 115, 120, 118, 128, 124, 125.60], reason: 'חברת תרופות דנית, מובילה בתרופות סוכרת ותרופת ההרזיה אוזמפיק', good: ['אוזמפיק פופולרי', 'צמיחה עצומה', 'מחקר'], bad: ['תחרות מאלי לילי', 'תלות בתרופה אחת'] },
+  { id: 96, name: 'SAP', symbol: 'SAP', score: 75, risk: 'low', price: 195.40, change: 0.5, changeWeek: 1.5, changeMonth: 3.5, changeYear: 22.5, exchange: 'NYSE', type: 'stock', history: [165, 172, 180, 178, 185, 190, 188, 197, 194, 195.40], reason: 'ענקית תוכנה ארגונית גרמנית, מעבר לפלטפורמת ענן', good: ['שליטה ב-ERP', 'לקוחות גלובליים', 'מעבר לענן'], bad: ['תחרות מסיילספורס', 'מעבר איטי'] },
+  { id: 97, name: 'טויוטה', symbol: 'TM', score: 74, risk: 'low', price: 230.50, change: 0.4, changeWeek: 1.2, changeMonth: 3.2, changeYear: 12.5, exchange: 'NYSE', type: 'stock', history: [205, 210, 218, 215, 222, 228, 225, 232, 230, 230.50], reason: 'יצרנית הרכב הגדולה בעולם, מובילה ברכבים היברידיים', good: ['מותג אמין', 'רכבים היברידיים', 'דיבידנדים'], bad: ['מעבר איטי לחשמלי', 'תחרות מסינית'] },
+  { id: 98, name: 'ג\'נרל אלקטריק', symbol: 'GE', score: 72, risk: 'medium', price: 170.30, change: 1.2, changeWeek: 2.8, changeMonth: 6.5, changeYear: 48.5, exchange: 'NYSE', type: 'stock', history: [115, 125, 140, 135, 150, 162, 158, 172, 168, 170.30], reason: 'חברת תעשייה היסטורית אחרי פיצול, מתמקדת בתעופה', good: ['מנועי מטוסים מובילים', 'התאוששות', 'פיצול מוצלח'], bad: ['חוב', 'מחזוריות תעופה'] },
 ];
 
 // ============================================================
@@ -138,6 +530,272 @@ const cryptoData = [
     good: ['גישה מדעית', 'צוות חזק'],
     bad: ['פיתוח איטי', 'פחות שימושים', 'תחרות חזקה']
   },
+  {
+    id: 105, name: 'ביננס קוין', symbol: 'BNB', score: 62, risk: 'high', price: 580.00,
+    change: 1.5, changeWeek: 3.2, changeMonth: -2.5, changeYear: 48.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [500, 520, 550, 540, 570, 585, 575, 595, 582, 580.00],
+    reason: 'המטבע של בורסת ביננס, השימוש בו נותן הנחה בעמלות',
+    good: ['בורסה גדולה מאחורי', 'שימושים פרקטיים'],
+    bad: ['תלות בביננס', 'בעיות רגולציה']
+  },
+  {
+    id: 106, name: 'ריפל', symbol: 'XRP', score: 55, risk: 'high', price: 0.52,
+    change: 0.8, changeWeek: 2.1, changeMonth: -4.5, changeYear: 35.2,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.45, 0.48, 0.52, 0.50, 0.55, 0.53, 0.54, 0.51, 0.53, 0.52],
+    reason: 'מטבע לתשלומים בין בנקים, ניצחה תביעה נגד רגולטור בארה"ב',
+    good: ['שותפויות עם בנקים', 'מהירות עסקאות'],
+    bad: ['ריכוזי', 'תלות בחברת ריפל']
+  },
+  {
+    id: 107, name: 'דוג\'קוין', symbol: 'DOGE', score: 30, risk: 'high', price: 0.085,
+    change: -2.1, changeWeek: -5.2, changeMonth: -12.5, changeYear: 18.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.07, 0.08, 0.095, 0.09, 0.10, 0.092, 0.087, 0.082, 0.088, 0.085],
+    reason: 'התחיל כבדיחה על בסיס ממים, עלה בזכות ציוצים של אילון מאסק',
+    good: ['קהילה אדירה', 'מהיר וזול'],
+    bad: ['אין תועלת אמיתית', 'תנודתי מאוד', 'אינפלציה בכמות']
+  },
+  {
+    id: 108, name: 'פוליגון', symbol: 'MATIC', score: 55, risk: 'high', price: 0.85,
+    change: 1.2, changeWeek: 3.5, changeMonth: -3.2, changeYear: 28.4,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.70, 0.75, 0.82, 0.80, 0.88, 0.85, 0.87, 0.83, 0.86, 0.85],
+    reason: 'פתרון קנה מידה לאת\'ריום, עמלות נמוכות ועסקאות מהירות',
+    good: ['שימושי לאת\'ריום', 'אימוץ גבוה', 'שותפויות גדולות'],
+    bad: ['תחרות חזקה', 'תלות באת\'ריום']
+  },
+  {
+    id: 109, name: 'אוואלנץ\'', symbol: 'AVAX', score: 58, risk: 'high', price: 35.20,
+    change: 2.5, changeWeek: 4.8, changeMonth: -5.5, changeYear: 42.3,
+    exchange: 'Crypto', type: 'crypto',
+    history: [28, 30, 33, 32, 36, 34, 37, 35, 36, 35.20],
+    reason: 'בלוקצ\'יין מהיר עם תת-רשתות מותאמות אישית',
+    good: ['טכנולוגיה מתקדמת', 'מהיר מאוד', 'גמיש'],
+    bad: ['פחות מוכר', 'תחרות קשה']
+  },
+  {
+    id: 110, name: 'צ\'יינלינק', symbol: 'LINK', score: 62, risk: 'high', price: 14.80,
+    change: 1.8, changeWeek: 3.5, changeMonth: -1.2, changeYear: 32.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [12, 13, 14, 13.5, 15, 14.2, 15.2, 14.5, 15, 14.80],
+    reason: 'מחבר בין בלוקצ\'יינים לנתונים בעולם האמיתי (אורקל)',
+    good: ['שימוש בתעשייה', 'תפקיד קריטי', 'טכנולוגיה ייחודית'],
+    bad: ['תחרות מצטרפת', 'מחיר תלוי בשוק כללי']
+  },
+  {
+    id: 111, name: 'פולקאדוט', symbol: 'DOT', score: 50, risk: 'high', price: 7.20,
+    change: -1.2, changeWeek: -2.5, changeMonth: -8.2, changeYear: -5.8,
+    exchange: 'Crypto', type: 'crypto',
+    history: [8.5, 8.2, 7.8, 8.0, 7.5, 7.3, 7.4, 7.1, 7.3, 7.20],
+    reason: 'מחברת בלוקצ\'יינים שונים, אבל פיתוח איטי יחסית',
+    good: ['מייסד של את\'ריום מאחורי', 'טכנולוגיה מתקדמת'],
+    bad: ['פיתוח איטי', 'אימוץ נמוך', 'תחרות']
+  },
+  {
+    id: 112, name: 'לייטקוין', symbol: 'LTC', score: 52, risk: 'high', price: 73.40,
+    change: 0.5, changeWeek: 1.8, changeMonth: -4.2, changeYear: 12.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [65, 68, 72, 70, 75, 74, 76, 72, 74, 73.40],
+    reason: 'מטבע ותיק המכונה "הכסף הדיגיטלי", מהיר יותר מביטקוין',
+    good: ['ותיק ומוכר', 'מהיר וזול', 'פעיל מ-2011'],
+    bad: ['חוסר חדשנות', 'פחות פופולרי בשנים האחרונות']
+  },
+  {
+    id: 113, name: 'טרון', symbol: 'TRX', score: 40, risk: 'high', price: 0.11,
+    change: 0.3, changeWeek: 1.2, changeMonth: 4.5, changeYear: 25.8,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.09, 0.10, 0.11, 0.105, 0.115, 0.108, 0.112, 0.108, 0.112, 0.11],
+    reason: 'פלטפורמת תוכן עם שימוש רב ב-USDT, אבל ריכוזית',
+    good: ['שימוש רב', 'עמלות נמוכות'],
+    bad: ['ריכוזית מאוד', 'חששות מהמנכ"ל', 'רגולציה']
+  },
+  {
+    id: 114, name: 'שיבה אינו', symbol: 'SHIB', score: 25, risk: 'high', price: 0.0000095,
+    change: -3.5, changeWeek: -7.2, changeMonth: -18.5, changeYear: 12.4,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.0000085, 0.0000092, 0.00001, 0.0000098, 0.0000105, 0.0000095, 0.0000098, 0.0000092, 0.0000097, 0.0000095],
+    reason: 'מטבע ממים שנוצר בתגובה לדוג\'קוין, אימוץ על ידי קהילה נאמנה',
+    good: ['קהילה גדולה', 'זול לרכישה'],
+    bad: ['אין תועלת אמיתית', 'אינפלציה גבוהה', 'ספקולטיבי מאוד']
+  },
+  {
+    id: 115, name: 'יוניסוואפ', symbol: 'UNI', score: 55, risk: 'high', price: 6.50,
+    change: 1.1, changeWeek: 2.8, changeMonth: -5.2, changeYear: 18.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [5.5, 5.8, 6.2, 6.0, 6.5, 6.3, 6.7, 6.4, 6.6, 6.50],
+    reason: 'בורסת קריפטו מבוזרת (DEX) המובילה בעולם',
+    good: ['מובילה בתחום DEX', 'נפח מסחר גבוה', 'שימוש יומיומי'],
+    bad: ['תחרות מצטרפת', 'רגולציה עלולה לפגוע']
+  },
+  {
+    id: 116, name: 'קוסמוס', symbol: 'ATOM', score: 48, risk: 'high', price: 9.20,
+    change: -0.8, changeWeek: -2.2, changeMonth: -6.5, changeYear: -12.8,
+    exchange: 'Crypto', type: 'crypto',
+    history: [10.5, 10.2, 9.8, 10.0, 9.5, 9.3, 9.4, 9.1, 9.3, 9.20],
+    reason: 'רשת של בלוקצ\'יינים המחוברים ביניהם ("אינטרנט של בלוקצ\'יינים")',
+    good: ['חזון מעניין', 'קהילת פיתוח חזקה'],
+    bad: ['קשה להבנה', 'אימוץ נמוך', 'תחרות']
+  },
+  {
+    id: 117, name: 'סטלאר', symbol: 'XLM', score: 45, risk: 'high', price: 0.11,
+    change: 0.2, changeWeek: 1.1, changeMonth: -3.5, changeYear: 8.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.10, 0.105, 0.11, 0.108, 0.115, 0.112, 0.113, 0.108, 0.111, 0.11],
+    reason: 'דומה לריפל - תשלומים בין בנקים, מטרה להגיע לאנשים ללא חשבון',
+    good: ['שותפויות עם בנקים', 'מטרה חברתית'],
+    bad: ['פחות מוכר', 'תחרות מול XRP']
+  },
+  {
+    id: 118, name: 'ניאר', symbol: 'NEAR', score: 55, risk: 'high', price: 3.40,
+    change: 1.5, changeWeek: 3.8, changeMonth: -2.8, changeYear: 45.2,
+    exchange: 'Crypto', type: 'crypto',
+    history: [2.5, 2.8, 3.2, 3.0, 3.5, 3.3, 3.6, 3.3, 3.5, 3.40],
+    reason: 'בלוקצ\'יין מהיר וידידותי לפיתוח, מיקוד ב-AI ושימושי משתמש',
+    good: ['חוויית פיתוח טובה', 'מיקוד ב-AI', 'מהיר'],
+    bad: ['צעיר יחסית', 'אימוץ מוגבל']
+  },
+  {
+    id: 119, name: 'אלגורנד', symbol: 'ALGO', score: 42, risk: 'high', price: 0.18,
+    change: -1.8, changeWeek: -3.5, changeMonth: -9.2, changeYear: -28.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.25, 0.23, 0.20, 0.22, 0.19, 0.18, 0.19, 0.17, 0.185, 0.18],
+    reason: 'פרויקט אקדמי עם מייסד זוכה פרס טיורינג, אך אימוץ נמוך',
+    good: ['טכנולוגיה מתקדמת', 'צוות אקדמי חזק', 'ידידותי לסביבה'],
+    bad: ['אימוץ נמוך', 'ירידת מחיר מתמשכת']
+  },
+  {
+    id: 120, name: 'אינטרנט קומפיוטר', symbol: 'ICP', score: 45, risk: 'high', price: 11.20,
+    change: 1.2, changeWeek: 2.5, changeMonth: -5.8, changeYear: 22.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [9, 10, 11, 10.5, 12, 11.2, 11.8, 10.8, 11.3, 11.20],
+    reason: 'חזון לבנות אינטרנט מבוזר על בלוקצ\'יין, אך ירד הרבה מהשיא',
+    good: ['טכנולוגיה שאפתנית', 'פרויקט ייחודי'],
+    bad: ['ירידה חדה מהשיא', 'מסובך להבנה', 'אימוץ נמוך']
+  },
+  {
+    id: 121, name: 'מונרו', symbol: 'XMR', score: 58, risk: 'high', price: 158.00,
+    change: 0.5, changeWeek: 1.8, changeMonth: -2.5, changeYear: 22.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [140, 145, 152, 150, 160, 155, 162, 156, 159, 158.00],
+    reason: 'מטבע פרטיות שמסתיר לחלוטין את זהות השולחים והמקבלים',
+    good: ['פרטיות מוחלטת', 'אמין טכנית', 'ותיק'],
+    bad: ['משמש לפעילות לא חוקית', 'רגולציה מאיימת', 'הוצאה מבורסות']
+  },
+  {
+    id: 122, name: 'ביטקוין קאש', symbol: 'BCH', score: 40, risk: 'high', price: 385.00,
+    change: -1.5, changeWeek: -3.2, changeMonth: -8.5, changeYear: -15.8,
+    exchange: 'Crypto', type: 'crypto',
+    history: [450, 435, 420, 425, 400, 395, 405, 388, 390, 385.00],
+    reason: 'פיצול מביטקוין ב-2017, אימץ בלוקים גדולים לעסקאות זולות',
+    good: ['עסקאות זולות', 'עברה ביטקוין', 'אימוץ כלשהו'],
+    bad: ['פחות מוכר מביטקוין', 'ירידה מתמשכת', 'פיצול נוסף']
+  },
+  {
+    id: 123, name: 'את\'ריום קלאסיק', symbol: 'ETC', score: 38, risk: 'high', price: 24.50,
+    change: -2.1, changeWeek: -4.5, changeMonth: -12.2, changeYear: -22.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [32, 30, 28, 29, 27, 26, 26.5, 25, 25.2, 24.50],
+    reason: 'הגרסה המקורית של את\'ריום שלא קיבלה את העדכון אחרי פריצה ב-2016',
+    good: ['עקרונות מקוריים', 'אלגוריתם יציב'],
+    bad: ['תחרות מול ETH', 'אימוץ נמוך', 'התקפות רשת בעבר']
+  },
+  {
+    id: 124, name: 'וי צ\'יין', symbol: 'VET', score: 42, risk: 'high', price: 0.032,
+    change: 1.2, changeWeek: 3.5, changeMonth: -5.8, changeYear: 15.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [0.025, 0.028, 0.033, 0.030, 0.035, 0.032, 0.034, 0.030, 0.033, 0.032],
+    reason: 'פלטפורמה לניהול שרשרת אספקה באמצעות בלוקצ\'יין',
+    good: ['שימושים עסקיים', 'שותפויות אמיתיות'],
+    bad: ['אימוץ איטי', 'ריכוזי יחסית']
+  },
+  {
+    id: 125, name: 'אייב', symbol: 'AAVE', score: 55, risk: 'high', price: 92.30,
+    change: 1.8, changeWeek: 4.2, changeMonth: -3.5, changeYear: 38.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [75, 80, 88, 85, 95, 90, 96, 88, 93, 92.30],
+    reason: 'פלטפורמת הלוואות מבוזרת מובילה בעולם DeFi',
+    good: ['מובילה ב-DeFi', 'הלוואות גדולות', 'חדשנות מתמדת'],
+    bad: ['סיכוני חוזים חכמים', 'רגולציה']
+  },
+  {
+    id: 126, name: 'טזוס', symbol: 'XTZ', score: 40, risk: 'high', price: 1.05,
+    change: -0.8, changeWeek: -2.5, changeMonth: -7.5, changeYear: -18.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [1.35, 1.28, 1.20, 1.22, 1.10, 1.05, 1.08, 1.02, 1.07, 1.05],
+    reason: 'בלוקצ\'יין עם מנגנון עדכונים מובנה, פיתוח איטי',
+    good: ['מנגנון ממשל חכם', 'יציב טכנית'],
+    bad: ['ירידה מתמשכת', 'אימוץ נמוך', 'תחרות']
+  },
+  {
+    id: 127, name: 'פילקוין', symbol: 'FIL', score: 38, risk: 'high', price: 5.80,
+    change: -1.2, changeWeek: -3.5, changeMonth: -10.5, changeYear: -25.4,
+    exchange: 'Crypto', type: 'crypto',
+    history: [8.5, 7.8, 7.0, 7.2, 6.5, 6.2, 6.5, 5.9, 6.0, 5.80],
+    reason: 'רשת אחסון קבצים מבוזרת, חלופה ל-Dropbox ו-AWS',
+    good: ['שימוש אמיתי באחסון', 'טכנולוגיה ייחודית'],
+    bad: ['ירידה חדה במחיר', 'תחרות מענקים מסורתיים']
+  },
+  {
+    id: 128, name: 'מייקר', symbol: 'MKR', score: 60, risk: 'high', price: 2180.00,
+    change: 2.5, changeWeek: 5.8, changeMonth: 12.5, changeYear: 62.5,
+    exchange: 'Crypto', type: 'crypto',
+    history: [1500, 1700, 1900, 1850, 2050, 2150, 2100, 2220, 2180, 2180.00],
+    reason: 'פרוטוקול DeFi המפעיל את המטבע היציב DAI',
+    good: ['מייסד של DeFi', 'מודל עסקי ייחודי', 'יציבות יחסית'],
+    bad: ['היצע נמוך', 'מחיר יקר', 'סיכוני רגולציה']
+  },
+  { id: 129, name: 'סטאקס', symbol: 'STX', score: 48, risk: 'high', price: 2.20, change: 1.8, changeWeek: 4.2, changeMonth: -5.5, changeYear: 45.5, exchange: 'Crypto', type: 'crypto', history: [1.60, 1.80, 2.10, 2.00, 2.30, 2.15, 2.25, 2.10, 2.20, 2.20], reason: 'מאפשר חוזים חכמים על גבי ביטקוין', good: ['מקושר לביטקוין', 'טכנולוגיה ייחודית'], bad: ['אימוץ נמוך', 'תחרות'] },
+  { id: 130, name: 'קאספה', symbol: 'KAS', score: 42, risk: 'high', price: 0.15, change: 2.5, changeWeek: 5.8, changeMonth: -8.5, changeYear: 85.5, exchange: 'Crypto', type: 'crypto', history: [0.10, 0.12, 0.14, 0.13, 0.16, 0.15, 0.17, 0.14, 0.15, 0.15], reason: 'בלוקצ\'יין מהיר מאוד, מבוסס על GHOSTDAG', good: ['מהיר מאוד', 'חדשני טכנית'], bad: ['צעיר', 'אימוץ מוגבל', 'ספקולטיבי'] },
+  { id: 131, name: 'רנדר', symbol: 'RNDR', score: 55, risk: 'high', price: 8.50, change: 1.5, changeWeek: 3.8, changeMonth: -4.5, changeYear: 52.5, exchange: 'Crypto', type: 'crypto', history: [6.5, 7.0, 7.8, 7.5, 8.2, 8.8, 8.5, 9.0, 8.4, 8.50], reason: 'רשת מבוזרת להשכרת כוח עיבוד גרפי (GPU), משמש לעיבוד וידאו ו-AI', good: ['שימוש במחשוב GPU', 'ביקוש מ-AI'], bad: ['תחרות ממסחרי', 'תלות בשוק AI'] },
+  { id: 132, name: 'אינג\'קטיב', symbol: 'INJ', score: 55, risk: 'high', price: 32.50, change: 2.1, changeWeek: 4.5, changeMonth: -6.5, changeYear: 38.5, exchange: 'Crypto', type: 'crypto', history: [22, 26, 30, 28, 34, 32, 35, 30, 33, 32.50], reason: 'בורסת נגזרים מבוזרת, מהיר ואיפוני-ידידותי', good: ['נגזרים מבוזרים', 'מהיר'], bad: ['תחרות חזקה', 'רגולציה על נגזרים'] },
+  { id: 133, name: 'פנטום', symbol: 'FTM', score: 48, risk: 'high', price: 0.75, change: 1.2, changeWeek: 3.2, changeMonth: -7.5, changeYear: 25.5, exchange: 'Crypto', type: 'crypto', history: [0.55, 0.62, 0.70, 0.68, 0.78, 0.74, 0.80, 0.72, 0.76, 0.75], reason: 'פלטפורמה מהירה וזולה לחוזים חכמים', good: ['מהיר', 'עמלות זולות'], bad: ['ירידה מהשיא', 'תחרות'] },
+  { id: 134, name: 'דה גרף', symbol: 'GRT', score: 45, risk: 'high', price: 0.28, change: -0.8, changeWeek: -2.2, changeMonth: -8.5, changeYear: -12.5, exchange: 'Crypto', type: 'crypto', history: [0.35, 0.33, 0.30, 0.31, 0.29, 0.28, 0.29, 0.27, 0.28, 0.28], reason: 'פרוטוקול לאינדקס נתונים בלוקצ\'יין, "גוגל של בלוקצ\'יין"', good: ['תפקיד תשתיתי', 'שימושי לפיתוח'], bad: ['אימוץ איטי', 'ירידה במחיר'] },
+  { id: 135, name: 'אימיוטייבל', symbol: 'IMX', score: 48, risk: 'high', price: 2.10, change: 1.5, changeWeek: 3.5, changeMonth: -5.8, changeYear: 38.5, exchange: 'Crypto', type: 'crypto', history: [1.50, 1.70, 1.90, 1.85, 2.10, 2.00, 2.20, 1.95, 2.05, 2.10], reason: 'פלטפורמה למשחקים מבוזרים ו-NFTs על את\'ריום', good: ['משחקים בבלוקצ\'יין', 'NFTs'], bad: ['תלות בהצלחת משחקים'] },
+  { id: 136, name: 'ארביטרום', symbol: 'ARB', score: 52, risk: 'high', price: 1.30, change: 1.2, changeWeek: 2.8, changeMonth: -4.5, changeYear: 18.5, exchange: 'Crypto', type: 'crypto', history: [1.10, 1.15, 1.25, 1.20, 1.35, 1.28, 1.38, 1.25, 1.32, 1.30], reason: 'פתרון קנה מידה לאת\'ריום (Layer 2), מאיץ עסקאות ומוזיל עמלות', good: ['Layer 2 מוביל', 'שותפויות', 'אימוץ גבוה'], bad: ['תחרות', 'תלות באת\'ריום'] },
+  { id: 137, name: 'אופטימיזם', symbol: 'OP', score: 50, risk: 'high', price: 2.80, change: 1.5, changeWeek: 3.2, changeMonth: -5.5, changeYear: 22.5, exchange: 'Crypto', type: 'crypto', history: [2.20, 2.40, 2.70, 2.60, 2.90, 2.75, 3.00, 2.65, 2.80, 2.80], reason: 'פתרון קנה מידה לאת\'ריום (Layer 2), מתחרה של Arbitrum', good: ['Layer 2 מוביל', 'קהילה פעילה'], bad: ['תחרות מ-ARB', 'תלות באת\'ריום'] },
+  { id: 138, name: 'אייפקוין', symbol: 'APE', score: 30, risk: 'high', price: 1.20, change: -2.5, changeWeek: -5.5, changeMonth: -15.5, changeYear: -45.5, exchange: 'Crypto', type: 'crypto', history: [2.50, 2.20, 1.80, 2.00, 1.50, 1.30, 1.35, 1.15, 1.25, 1.20], reason: 'מטבע של קהילת NFT של קופי Bored Ape Yacht Club', good: ['קהילת NFT'], bad: ['ירידה קיצונית', 'NFTs לא בטרנד', 'ספקולטיבי'] },
+  { id: 139, name: 'אקסי אינפיניטי', symbol: 'AXS', score: 35, risk: 'high', price: 7.20, change: -1.5, changeWeek: -3.5, changeMonth: -12.5, changeYear: -35.5, exchange: 'Crypto', type: 'crypto', history: [12, 10.5, 9.0, 9.5, 8.0, 7.5, 7.8, 7.0, 7.3, 7.20], reason: 'משחק NFT שהיה פופולרי בפיליפינים, איבד משיא', good: ['חלוץ play-to-earn', 'קהילה'], bad: ['ירידה חדה', 'ירידה בשחקנים'] },
+  { id: 140, name: 'דסנטרלנד', symbol: 'MANA', score: 32, risk: 'high', price: 0.48, change: -2.2, changeWeek: -4.8, changeMonth: -12.5, changeYear: -38.5, exchange: 'Crypto', type: 'crypto', history: [0.75, 0.68, 0.58, 0.62, 0.52, 0.48, 0.50, 0.45, 0.48, 0.48], reason: 'עולם וירטואלי מבוזר (מטאוורס), הייפ שדעך', good: ['חלוץ מטאוורס'], bad: ['ירידה במשתמשים', 'מטאוורס לא פרץ'] },
+  { id: 141, name: 'דה סנדבוקס', symbol: 'SAND', score: 35, risk: 'high', price: 0.52, change: -1.8, changeWeek: -4.2, changeMonth: -11.5, changeYear: -32.5, exchange: 'Crypto', type: 'crypto', history: [0.80, 0.72, 0.62, 0.65, 0.55, 0.52, 0.54, 0.48, 0.52, 0.52], reason: 'פלטפורמת משחקים וירטואלית, דומה לדסנטרלנד', good: ['שותפויות עם מותגים', 'טוקן משחק'], bad: ['ירידה מהשיא', 'תחרות'] },
+  { id: 142, name: 'קרב', symbol: 'CRV', score: 42, risk: 'high', price: 0.60, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [0.85, 0.78, 0.70, 0.72, 0.65, 0.60, 0.62, 0.58, 0.62, 0.60], reason: 'בורסה מבוזרת המתמחה במטבעות יציבים', good: ['נישה ייחודית', 'חשובה ל-DeFi'], bad: ['ירידה במחיר', 'פריצות בעבר'] },
+  { id: 143, name: 'סינת\'טיקס', symbol: 'SNX', score: 40, risk: 'high', price: 3.20, change: -0.8, changeWeek: -2.2, changeMonth: -7.5, changeYear: -18.5, exchange: 'Crypto', type: 'crypto', history: [4.20, 3.90, 3.50, 3.60, 3.20, 3.10, 3.25, 3.00, 3.15, 3.20], reason: 'פרוטוקול לנכסים סינתטיים על בלוקצ\'יין', good: ['נכסים סינתטיים', 'חדשנות'], bad: ['מסובך', 'אימוץ מוגבל'] },
+  { id: 144, name: 'קומפאונד', symbol: 'COMP', score: 45, risk: 'high', price: 62.30, change: -1.5, changeWeek: -3.2, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [82, 76, 70, 72, 65, 62, 65, 58, 63, 62.30], reason: 'פרוטוקול הלוואות מבוזר, חלוץ ב-DeFi', good: ['חלוץ DeFi', 'אימוץ גדול'], bad: ['תחרות מ-Aave', 'ירידה במחיר'] },
+  { id: 145, name: 'ביטקוין SV', symbol: 'BSV', score: 30, risk: 'high', price: 72.00, change: -2.5, changeWeek: -5.5, changeMonth: -12.5, changeYear: -28.5, exchange: 'Crypto', type: 'crypto', history: [98, 92, 85, 88, 78, 72, 75, 70, 73, 72.00], reason: 'פיצול של ביטקוין קאש, מזוהה עם קרייג רייט השנוי במחלוקת', good: ['בלוקים גדולים'], bad: ['שנוי במחלוקת', 'ירידה מתמשכת', 'אימוץ נמוך'] },
+  { id: 146, name: 'דאש', symbol: 'DASH', score: 38, risk: 'high', price: 32.50, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [42, 38, 35, 36, 33, 32, 34, 30, 33, 32.50], reason: 'מטבע לתשלומים מהירים ופרטיים, אימוץ בחלק ממדינות', good: ['מהיר לתשלומים', 'אימוץ בחלק ממדינות'], bad: ['ירידה במחיר', 'תחרות'] },
+  { id: 147, name: 'זיקאש', symbol: 'ZEC', score: 42, risk: 'high', price: 28.50, change: 0.8, changeWeek: 2.2, changeMonth: -4.5, changeYear: 15.5, exchange: 'Crypto', type: 'crypto', history: [24, 26, 29, 28, 31, 29, 30, 27, 29, 28.50], reason: 'מטבע פרטיות עם הצפנת Zero-knowledge proofs', good: ['פרטיות אופציונלית', 'טכנולוגיה מתקדמת'], bad: ['תחרות ממונרו', 'רגולציה'] },
+  { id: 148, name: 'הליום', symbol: 'HNT', score: 45, risk: 'high', price: 5.80, change: 1.5, changeWeek: 3.5, changeMonth: -5.5, changeYear: 25.5, exchange: 'Crypto', type: 'crypto', history: [4.2, 4.8, 5.5, 5.2, 6.0, 5.8, 6.2, 5.5, 5.9, 5.80], reason: 'רשת אלחוטית מבוזרת של מכשירי IoT', good: ['שימוש אמיתי IoT', 'רשת גלובלית'], bad: ['אימוץ איטי', 'מודל עסקי מתפתח'] },
+  { id: 149, name: 'ת\'טא', symbol: 'THETA', score: 40, risk: 'high', price: 1.45, change: -0.8, changeWeek: -2.2, changeMonth: -7.5, changeYear: -18.5, exchange: 'Crypto', type: 'crypto', history: [2.00, 1.80, 1.60, 1.65, 1.50, 1.40, 1.50, 1.35, 1.45, 1.45], reason: 'רשת וידאו מבוזרת, מטרה להחליף שרתי סטרימינג', good: ['שימוש אמיתי בווידאו', 'שותפויות'], bad: ['ירידה במחיר', 'תחרות'] },
+  { id: 150, name: 'פלו', symbol: 'FLOW', score: 35, risk: 'high', price: 0.78, change: -1.5, changeWeek: -3.5, changeMonth: -12.5, changeYear: -38.5, exchange: 'Crypto', type: 'crypto', history: [1.35, 1.20, 1.00, 1.05, 0.85, 0.75, 0.85, 0.70, 0.80, 0.78], reason: 'בלוקצ\'יין שפותח על ידי Dapper Labs ליצירת NFTs', good: ['NBA Top Shot', 'יוצרי CryptoKitties'], bad: ['ירידה קיצונית', 'NFTs לא בטרנד'] },
+  { id: 151, name: 'EOS', symbol: 'EOS', score: 28, risk: 'high', price: 0.75, change: -1.8, changeWeek: -4.2, changeMonth: -12.5, changeYear: -28.5, exchange: 'Crypto', type: 'crypto', history: [1.10, 0.98, 0.85, 0.90, 0.78, 0.72, 0.78, 0.68, 0.75, 0.75], reason: 'בלוקצ\'יין ותיק שגייס מיליארדים ב-ICO אבל לא הצליח', good: ['ותיק'], bad: ['כישלון יחסי', 'ירידה קיצונית', 'אימוץ נמוך'] },
+  { id: 152, name: 'איוטה', symbol: 'IOTA', score: 32, risk: 'high', price: 0.22, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [0.30, 0.28, 0.25, 0.26, 0.23, 0.22, 0.23, 0.21, 0.22, 0.22], reason: 'רשת ללא עמלות ל-IoT, שימוש בטופולוגיית Tangle', good: ['ללא עמלות', 'טכנולוגיה ייחודית'], bad: ['אימוץ נמוך', 'התקפות בעבר'] },
+  { id: 153, name: 'נאו', symbol: 'NEO', score: 35, risk: 'high', price: 12.40, change: -0.8, changeWeek: -2.2, changeMonth: -7.5, changeYear: -15.5, exchange: 'Crypto', type: 'crypto', history: [16, 15, 13, 13.5, 12, 11.5, 12.5, 11, 12.5, 12.40], reason: 'בלוקצ\'יין סיני, מכונה "את\'ריום של סין"', good: ['מותג סיני חזק', 'ותיק'], bad: ['סיכוני רגולציה סינית', 'אימוץ מוגבל'] },
+  { id: 154, name: 'וויבס', symbol: 'WAVES', score: 25, risk: 'high', price: 2.10, change: -2.5, changeWeek: -5.5, changeMonth: -15.5, changeYear: -42.5, exchange: 'Crypto', type: 'crypto', history: [4.20, 3.60, 2.80, 3.00, 2.40, 2.00, 2.20, 1.80, 2.05, 2.10], reason: 'בלוקצ\'יין ליצירת טוקנים, איבד אמון אחרי בעיות', good: ['יצירת טוקנים'], bad: ['קריסת USDN', 'איבד אמון', 'ירידה קיצונית'] },
+  { id: 155, name: 'מאלטיוורס X', symbol: 'EGLD', score: 42, risk: 'high', price: 48.30, change: 0.8, changeWeek: 2.2, changeMonth: -5.5, changeYear: 18.5, exchange: 'Crypto', type: 'crypto', history: [38, 42, 46, 44, 50, 48, 52, 44, 49, 48.30], reason: 'בלוקצ\'יין מהיר מאוד, שינה את שמו מ-Elrond', good: ['מהיר מאוד', 'טכנולוגיה מתקדמת'], bad: ['אימוץ נמוך', 'מורכבות'] },
+  { id: 156, name: 'הדרה', symbol: 'HBAR', score: 48, risk: 'high', price: 0.095, change: 1.5, changeWeek: 3.5, changeMonth: -5.5, changeYear: 38.5, exchange: 'Crypto', type: 'crypto', history: [0.07, 0.08, 0.09, 0.085, 0.10, 0.095, 0.10, 0.088, 0.095, 0.095], reason: 'רשת קונצנזוס עם גוף ממשלתי של ענקיות (IBM, גוגל)', good: ['שותפויות עם ענקיות', 'מהיר'], bad: ['ריכוזי יחסית', 'אימוץ איטי'] },
+  { id: 157, name: 'קוואנט', symbol: 'QNT', score: 50, risk: 'high', price: 108.50, change: 0.8, changeWeek: 2.2, changeMonth: -4.5, changeYear: 15.5, exchange: 'Crypto', type: 'crypto', history: [88, 95, 105, 100, 110, 108, 115, 100, 108, 108.50], reason: 'פתרון חיבור בין בלוקצ\'יינים, מיקוד בארגונים גדולים', good: ['מיקוד בארגונים', 'טכנולוגיה ייחודית'], bad: ['היצע נמוך', 'אימוץ מוגבל'] },
+  { id: 158, name: 'צ\'יליז', symbol: 'CHZ', score: 35, risk: 'high', price: 0.12, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [0.18, 0.16, 0.14, 0.15, 0.13, 0.12, 0.13, 0.11, 0.12, 0.12], reason: 'טוקני אוהדים של קבוצות ספורט (ברצלונה, יובנטוס)', good: ['שותפויות ספורט', 'נישה מעניינת'], bad: ['ירידה במחיר', 'שימוש מוגבל'] },
+  { id: 159, name: 'קאבה', symbol: 'KAVA', score: 38, risk: 'high', price: 0.88, change: -1.5, changeWeek: -3.2, changeMonth: -8.5, changeYear: -25.5, exchange: 'Crypto', type: 'crypto', history: [1.30, 1.15, 1.00, 1.05, 0.90, 0.85, 0.92, 0.80, 0.90, 0.88], reason: 'פלטפורמת DeFi על גבי Cosmos', good: ['חלק מ-Cosmos', 'DeFi'], bad: ['ירידה במחיר', 'תחרות חזקה'] },
+  { id: 160, name: 'מינה', symbol: 'MINA', score: 42, risk: 'high', price: 0.65, change: -0.8, changeWeek: -2.2, changeMonth: -7.5, changeYear: -18.5, exchange: 'Crypto', type: 'crypto', history: [0.95, 0.82, 0.70, 0.75, 0.65, 0.62, 0.68, 0.58, 0.65, 0.65], reason: 'הבלוקצ\'יין הקל ביותר בעולם (22KB בלבד)', good: ['בלוקצ\'יין קל', 'zero-knowledge מתקדם'], bad: ['אימוץ איטי', 'תחרות'] },
+  { id: 161, name: 'גאלה', symbol: 'GALA', score: 30, risk: 'high', price: 0.028, change: -2.5, changeWeek: -5.5, changeMonth: -15.5, changeYear: -42.5, exchange: 'Crypto', type: 'crypto', history: [0.055, 0.048, 0.038, 0.042, 0.032, 0.028, 0.032, 0.025, 0.030, 0.028], reason: 'פלטפורמת משחקים בבלוקצ\'יין', good: ['משחקים בבלוקצ\'יין'], bad: ['ירידה קיצונית', 'משחקים לא פרצו'] },
+  { id: 162, name: 'אנג\'ין', symbol: 'ENJ', score: 35, risk: 'high', price: 0.32, change: -1.5, changeWeek: -3.5, changeMonth: -10.5, changeYear: -28.5, exchange: 'Crypto', type: 'crypto', history: [0.52, 0.45, 0.38, 0.40, 0.34, 0.32, 0.35, 0.28, 0.32, 0.32], reason: 'פלטפורמה ל-NFTs במשחקים', good: ['NFTs במשחקים', 'חלוץ בתחום'], bad: ['ירידה במחיר', 'NFTs לא בטרנד'] },
+  { id: 163, name: 'בייזיק אטנשן', symbol: 'BAT', score: 40, risk: 'high', price: 0.25, change: -0.5, changeWeek: -1.8, changeMonth: -5.5, changeYear: -12.5, exchange: 'Crypto', type: 'crypto', history: [0.32, 0.30, 0.27, 0.28, 0.26, 0.24, 0.26, 0.23, 0.25, 0.25], reason: 'מטבע של דפדפן Brave, מתגמל על צפייה בפרסומות', good: ['שימוש אמיתי בדפדפן Brave', 'מודל פרסום חדש'], bad: ['ירידה במחיר', 'תחרות'] },
+  { id: 164, name: 'קיוטום', symbol: 'QTUM', score: 30, risk: 'high', price: 3.10, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [4.20, 3.80, 3.40, 3.50, 3.20, 3.00, 3.20, 2.80, 3.10, 3.10], reason: 'שילוב של ביטקוין ואת\'ריום, אימוץ נמוך', good: ['שילוב טכנולוגיות'], bad: ['אימוץ נמוך', 'ירידה מתמשכת'] },
+  { id: 165, name: 'זיליקה', symbol: 'ZIL', score: 32, risk: 'high', price: 0.025, change: -1.8, changeWeek: -4.2, changeMonth: -12.5, changeYear: -32.5, exchange: 'Crypto', type: 'crypto', history: [0.040, 0.035, 0.030, 0.032, 0.027, 0.025, 0.027, 0.023, 0.026, 0.025], reason: 'בלוקצ\'יין מהיר עם sharding, אימוץ נמוך', good: ['sharding מתקדם'], bad: ['אימוץ נמוך', 'תחרות'] },
+  { id: 166, name: 'הולו', symbol: 'HOT', score: 25, risk: 'high', price: 0.0022, change: -2.5, changeWeek: -5.5, changeMonth: -15.5, changeYear: -42.5, exchange: 'Crypto', type: 'crypto', history: [0.0045, 0.0038, 0.0030, 0.0032, 0.0025, 0.0022, 0.0024, 0.0020, 0.0023, 0.0022], reason: 'חלופה לבלוקצ\'יין (holochain), אימוץ מוגבל', good: ['חלופה מעניינת'], bad: ['אימוץ נמוך', 'ירידה קיצונית'] },
+  { id: 167, name: 'ביטקוין גולד', symbol: 'BTG', score: 25, risk: 'high', price: 32.00, change: -2.2, changeWeek: -5.2, changeMonth: -12.5, changeYear: -28.5, exchange: 'Crypto', type: 'crypto', history: [45, 42, 38, 40, 35, 32, 34, 30, 33, 32.00], reason: 'פיצול של ביטקוין מ-2017, אימוץ מוגבל', good: ['פיצול ביטקוין'], bad: ['אימוץ נמוך', 'ירידה מתמשכת'] },
+  { id: 168, name: 'אונטולוג\'י', symbol: 'ONT', score: 28, risk: 'high', price: 0.22, change: -1.5, changeWeek: -3.5, changeMonth: -10.5, changeYear: -28.5, exchange: 'Crypto', type: 'crypto', history: [0.32, 0.28, 0.25, 0.26, 0.23, 0.22, 0.24, 0.20, 0.22, 0.22], reason: 'בלוקצ\'יין עסקי, שותף של NEO', good: ['מיקוד בעסקים'], bad: ['אימוץ נמוך', 'ירידה'] },
+  { id: 169, name: 'רייבנקוין', symbol: 'RVN', score: 28, risk: 'high', price: 0.022, change: -1.8, changeWeek: -4.2, changeMonth: -12.5, changeYear: -32.5, exchange: 'Crypto', type: 'crypto', history: [0.035, 0.032, 0.028, 0.029, 0.025, 0.022, 0.024, 0.020, 0.023, 0.022], reason: 'בלוקצ\'יין ליצירת נכסים וטוקנים', good: ['פשוט ליצירת טוקנים'], bad: ['אימוץ נמוך', 'תחרות'] },
+  { id: 170, name: 'דיגיבייט', symbol: 'DGB', score: 25, risk: 'high', price: 0.010, change: -2.2, changeWeek: -5.2, changeMonth: -15.5, changeYear: -38.5, exchange: 'Crypto', type: 'crypto', history: [0.018, 0.015, 0.012, 0.013, 0.011, 0.010, 0.011, 0.009, 0.010, 0.010], reason: 'בלוקצ\'יין מהיר מ-2014, אימוץ מוגבל', good: ['ותיק'], bad: ['אימוץ נמוך', 'ירידה חדה'] },
+  { id: 171, name: 'ורג\'', symbol: 'XVG', score: 20, risk: 'high', price: 0.0055, change: -2.8, changeWeek: -6.5, changeMonth: -18.5, changeYear: -48.5, exchange: 'Crypto', type: 'crypto', history: [0.012, 0.009, 0.007, 0.0075, 0.006, 0.0055, 0.006, 0.005, 0.0058, 0.0055], reason: 'מטבע פרטיות ותיק עם היסטוריה של בעיות אבטחה', good: ['פרטיות'], bad: ['בעיות אבטחה בעבר', 'ירידה חדה'] },
+  { id: 172, name: 'לונה', symbol: 'LUNA', score: 15, risk: 'high', price: 0.62, change: -3.5, changeWeek: -8.5, changeMonth: -22.5, changeYear: -62.5, exchange: 'Crypto', type: 'crypto', history: [2.20, 1.50, 1.00, 1.10, 0.80, 0.65, 0.75, 0.55, 0.65, 0.62], reason: 'גרסה חדשה אחרי קריסת Luna המקורית ב-2022', good: ['ניסיון חוזר'], bad: ['קריסה היסטורית', 'אובדן אמון', 'ירידה'] },
+  { id: 173, name: 'סלו', symbol: 'CELO', score: 35, risk: 'high', price: 0.75, change: -1.2, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.5, exchange: 'Crypto', type: 'crypto', history: [1.05, 0.95, 0.85, 0.88, 0.78, 0.72, 0.78, 0.68, 0.75, 0.75], reason: 'פלטפורמת תשלומים ניידים למדינות מתפתחות', good: ['מטרה חברתית', 'מיקוד במובייל'], bad: ['אימוץ מוגבל', 'תחרות'] },
+  { id: 174, name: 'ביטורנט', symbol: 'BTT', score: 20, risk: 'high', price: 0.0000012, change: -2.5, changeWeek: -5.5, changeMonth: -15.5, changeYear: -42.5, exchange: 'Crypto', type: 'crypto', history: [0.0000025, 0.0000020, 0.0000016, 0.0000017, 0.0000014, 0.0000012, 0.0000013, 0.0000011, 0.0000012, 0.0000012], reason: 'מטבע של רשת ביטורנט על Tron, היצע ענק', good: ['שימוש בביטורנט'], bad: ['היצע אסטרונומי', 'ירידה מתמשכת'] },
+  { id: 175, name: 'קונפלוקס', symbol: 'CFX', score: 42, risk: 'high', price: 0.22, change: 1.5, changeWeek: 3.5, changeMonth: -5.5, changeYear: 28.5, exchange: 'Crypto', type: 'crypto', history: [0.16, 0.18, 0.21, 0.20, 0.24, 0.22, 0.25, 0.20, 0.22, 0.22], reason: 'בלוקצ\'יין סיני עם אישור רגולטורי', good: ['אישור בסין', 'מהיר'], bad: ['סיכוני רגולציה', 'תלות בסין'] },
+  { id: 176, name: 'סוי', symbol: 'SUI', score: 52, risk: 'high', price: 1.28, change: 2.1, changeWeek: 4.5, changeMonth: -5.5, changeYear: 48.5, exchange: 'Crypto', type: 'crypto', history: [0.85, 0.95, 1.15, 1.10, 1.30, 1.25, 1.35, 1.15, 1.25, 1.28], reason: 'בלוקצ\'יין חדש ומהיר מצוות Meta לשעבר', good: ['מהיר מאוד', 'צוות חזק', 'חדשני'], bad: ['צעיר', 'תחרות'] },
+  { id: 177, name: 'אפטוס', symbol: 'APT', score: 50, risk: 'high', price: 8.50, change: 1.8, changeWeek: 3.8, changeMonth: -5.5, changeYear: 32.5, exchange: 'Crypto', type: 'crypto', history: [6.5, 7.2, 8.0, 7.8, 8.8, 8.5, 9.0, 8.0, 8.4, 8.50], reason: 'בלוקצ\'יין חדש ומהיר, מתחרה של Sui', good: ['מהיר', 'צוות מ-Meta', 'תמיכה מ-VCs'], bad: ['ריכוזי', 'תחרות מול Sui'] },
+  { id: 178, name: 'פאקסוס גולד', symbol: 'PAXG', score: 68, risk: 'medium', price: 2050.00, change: 0.5, changeWeek: 1.2, changeMonth: 2.8, changeYear: 18.5, exchange: 'Crypto', type: 'crypto', history: [1850, 1900, 1950, 1940, 1980, 2020, 2010, 2060, 2045, 2050.00], reason: 'מטבע מגובה בזהב פיזי, כל טוקן = אונקיית זהב', good: ['מגובה בזהב אמיתי', 'נייד ומחולק', 'גידור מפני אינפלציה'], bad: ['עמלות שמירה', 'תלות בחברה מרכזית'] },
 ];
 
 // ============================================================
@@ -257,10 +915,12 @@ const getScoreInfo = (score) => {
   return { label: 'לא מומלץ', emoji: '👎', color: '#ef4444' };
 };
 
-const formatPrice = (price, type) => {
-  if (type === 'crypto' && price < 1) return `$${price.toFixed(2)}`;
-  if (price >= 1000) return `$${(price/1000).toFixed(1)}K`;
-  return `$${price.toLocaleString()}`;
+const formatPrice = (price, type, exchange) => {
+  const symbol = exchange === 'TASE' ? '₪' : '$';
+  if (type === 'crypto' && price < 0.01) return `$${price.toFixed(8)}`;
+  if (type === 'crypto' && price < 1) return `$${price.toFixed(3)}`;
+  if (price >= 1000) return `${symbol}${(price/1000).toFixed(1)}K`;
+  return `${symbol}${price.toLocaleString()}`;
 };
 
 // ============================================================
@@ -547,7 +1207,7 @@ const AssetCard = ({ asset, index, onClick, isDesktop }) => {
             }}>{isCrypto ? '🪙 קריפטו' : '📊 מניה'}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: isDesktop ? '14px' : '12px', color: '#64748b' }}>
-            <span style={{ fontWeight: '500' }}>{formatPrice(asset.price, asset.type)}</span>
+            <span style={{ fontWeight: '500' }}>{formatPrice(asset.price, asset.type, asset.exchange)}</span>
             <span style={{ color: isUp ? '#10b981' : '#ef4444', fontWeight: '600' }}>
               {isUp ? '↑' : '↓'} {Math.abs(asset.change)}%
             </span>
@@ -947,7 +1607,7 @@ const AssetDetail = ({ asset, onBack, isDesktop }) => {
               </div>
             </div>
             <div style={{ textAlign: 'left' }}>
-              <div style={{ fontSize: isDesktop ? '32px' : '26px', fontWeight: '700' }}>{formatPrice(asset.price, asset.type)}</div>
+              <div style={{ fontSize: isDesktop ? '32px' : '26px', fontWeight: '700' }}>{formatPrice(asset.price, asset.type, asset.exchange)}</div>
               <div style={{ fontSize: '16px', color: isUp ? '#86efac' : '#fca5a5', fontWeight: '600' }}>
                 {isUp ? '↑' : '↓'} {Math.abs(asset.change)}%
               </div>
@@ -1025,11 +1685,22 @@ const AssetDetail = ({ asset, onBack, isDesktop }) => {
                     { label: 'חודשי', value: asset.changeMonth },
                     { label: 'שנתי', value: asset.changeYear },
                   ].map(item => {
-                    // TODO: כאן את כותבת את הקופסה!
-                    //   - item.label = שם התקופה (למשל "יומי")
-                    //   - item.value = האחוז (מספר, יכול להיות שלילי)
-                    //   ראי הוראות מפורטות בצ'אט.
-                    return null;
+                    const isPositive = item.value >= 0;
+                    const color = isPositive ? '#10b981' : '#ef4444';
+                    return (
+                      <div key={item.label} style={{
+                        minWidth: '84px',
+                        padding: '14px 16px',
+                        background: `${color}12`,
+                        borderRadius: '14px',
+                        border: `1px solid ${color}25`
+                      }}>
+                        <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '6px' }}>{item.label}</div>
+                        <div style={{ fontSize: '16px', fontWeight: '700', color }}>
+                          {isPositive ? '↑' : '↓'} {Math.abs(item.value).toFixed(1)}%
+                        </div>
+                      </div>
+                    );
                   })}
                 </div>
               </div>
