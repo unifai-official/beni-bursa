@@ -995,66 +995,243 @@ const AnimatedScore = ({ score, size = 100 }) => {
 };
 
 // ============================================================
-// ONBOARDING
+// SPLASH SCREEN  (Premium Gradient · shown only once, first visit)
 // ============================================================
 
-const Onboarding = ({ onComplete }) => {
-  const [step, setStep] = useState(0);
-  const [fade, setFade] = useState(true);
+const SPLASH_FLAG = 'hasSeenSplashV1';
+const SPLASH_DURATION = 2500;
 
-  const steps = [
-    { emoji: '👋', title: 'שלום!', sub: 'בוא נלמד על השקעות' },
-    { emoji: '📊', title: 'מניות', sub: 'קונים חלק מחברה אמיתית' },
-    { emoji: '🪙', title: 'קריפטו', sub: 'מטבעות דיגיטליים' },
-    { emoji: '🚀', title: 'מוכן?', sub: 'בוא נתחיל!' },
-  ];
+const SplashScreen = ({ onDone }) => {
+  const [leaving, setLeaving] = useState(false);
 
-  const next = () => {
-    setFade(false);
-    setTimeout(() => {
-      if (step < steps.length - 1) { setStep(step + 1); setFade(true); }
-      else onComplete();
-    }, 150);
-  };
+  useEffect(() => {
+    const leaveTimer = setTimeout(() => setLeaving(true), SPLASH_DURATION - 400);
+    const doneTimer  = setTimeout(() => { try { localStorage.setItem(SPLASH_FLAG, '1'); } catch(e){} onDone(); }, SPLASH_DURATION);
+    return () => { clearTimeout(leaveTimer); clearTimeout(doneTimer); };
+  }, [onDone]);
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, background: 'linear-gradient(160deg, #1e3a8a 0%, #3b82f6 100%)',
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      padding: '24px', zIndex: 1000
+      position: 'fixed', inset: 0, zIndex: 2000,
+      background: 'radial-gradient(ellipse at 30% 20%, #1e3a8a 0%, #0c1e4e 70%)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      overflow: 'hidden',
+      opacity: leaving ? 0 : 1,
+      transition: 'opacity 0.4s var(--ios-soft)',
+      pointerEvents: leaving ? 'none' : 'auto'
     }}>
-      <button onClick={onComplete} style={{
-        position: 'absolute', top: '24px', left: '24px', background: 'rgba(255,255,255,0.15)',
-        border: 'none', borderRadius: '20px', padding: '10px 20px', color: 'rgba(255,255,255,0.9)',
-        fontSize: '14px', cursor: 'pointer', backdropFilter: 'blur(10px)'
-      }}>דלג</button>
+      {/* Floating orbs */}
+      <div style={{
+        position: 'absolute', top: '12%', right: '12%',
+        width: '220px', height: '220px', borderRadius: '50%',
+        background: '#3b82f6', filter: 'blur(48px)', opacity: 0.55,
+        animation: 'splash-orb-float 4.5s ease-in-out infinite'
+      }} />
+      <div style={{
+        position: 'absolute', bottom: '14%', left: '14%',
+        width: '180px', height: '180px', borderRadius: '50%',
+        background: '#8b5cf6', filter: 'blur(44px)', opacity: 0.5,
+        animation: 'splash-orb-float 5s ease-in-out 1s infinite'
+      }} />
+      <div style={{
+        position: 'absolute', top: '42%', left: '18%',
+        width: '140px', height: '140px', borderRadius: '50%',
+        background: '#06b6d4', filter: 'blur(40px)', opacity: 0.42,
+        animation: 'splash-orb-float 4s ease-in-out 2s infinite'
+      }} />
 
-      <div style={{ opacity: fade ? 1 : 0, transform: fade ? 'translateY(0)' : 'translateY(10px)', transition: 'all 0.2s', textAlign: 'center' }}>
-        <div style={{ fontSize: '100px', marginBottom: '24px' }}>{steps[step].emoji}</div>
-        <h1 style={{ color: 'white', fontSize: '36px', fontWeight: '700', marginBottom: '12px' }}>{steps[step].title}</h1>
-        <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '20px', marginBottom: '48px' }}>{steps[step].sub}</p>
+      {/* Logo + text */}
+      <div style={{ position: 'relative', zIndex: 2, textAlign: 'center',
+                    animation: 'splash-rise 0.9s var(--ios-spring) both' }}>
+        <div style={{
+          width: '104px', height: '104px', margin: '0 auto 24px',
+          borderRadius: '28px',
+          background: 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '56px',
+          boxShadow: '0 24px 48px rgba(59,130,246,0.45), inset 0 1px 0 rgba(255,255,255,0.35)',
+          animation: 'splash-float 3.2s ease-in-out 0.6s infinite'
+        }}>📈</div>
+
+        <h1 style={{
+          margin: 0, fontSize: '48px', fontWeight: 800,
+          background: 'linear-gradient(90deg, #ffffff 0%, #bfdbfe 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          letterSpacing: '-1px',
+          animation: 'splash-text-reveal 0.9s var(--ios-spring) 0.15s both'
+        }}>Beni Bursa</h1>
+
+        <p style={{
+          margin: '8px 0 0', fontSize: '13px', fontWeight: 500,
+          color: 'rgba(255,255,255,0.72)',
+          letterSpacing: '4px',
+          animation: 'fade-in 0.6s ease-out 0.7s both'
+        }}>SMART INVESTING</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '10px', marginBottom: '40px' }}>
-        {steps.map((_, i) => (
-          <div key={i} style={{
-            width: i === step ? '32px' : '10px', height: '10px', borderRadius: '5px',
-            background: i === step ? 'white' : 'rgba(255,255,255,0.3)', transition: 'all 0.3s'
-          }} />
-        ))}
+      {/* Shimmer loader bar */}
+      <div style={{
+        position: 'absolute', bottom: '56px', left: '50%', transform: 'translateX(-50%)',
+        width: '180px', height: '3px', borderRadius: '3px',
+        background: 'rgba(255,255,255,0.12)', overflow: 'hidden',
+        animation: 'fade-in 0.5s ease-out 0.9s both'
+      }}>
+        <div style={{
+          position: 'absolute', top: 0, height: '100%', width: '45%',
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent)',
+          animation: 'splash-shimmer 1.4s ease-in-out infinite'
+        }} />
       </div>
-
-      <button onClick={next} style={{
-        background: 'white', border: 'none', borderRadius: '20px', padding: '18px 56px',
-        color: '#1e3a8a', fontSize: '18px', fontWeight: '600', cursor: 'pointer',
-        boxShadow: '0 10px 40px rgba(0,0,0,0.2)', transition: 'transform 0.2s'
-      }}
-      onMouseEnter={e => e.target.style.transform = 'scale(1.02)'}
-      onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-      >{step === steps.length - 1 ? 'התחל!' : 'המשך'}</button>
     </div>
   );
 };
+
+// ============================================================
+// HELP BOTTOM SHEET  (content of former onboarding — shown on demand)
+// ============================================================
+
+const HELP_CARDS = [
+  { emoji: '👋', title: 'ברוכים הבאים',  desc: 'Beni Bursa עוזר להכיר את עולם ההשקעות בשפה פשוטה וברורה.' },
+  { emoji: '📊', title: 'מניות',        desc: 'כשקונים מניה, אתם הבעלים של חלק קטן מחברה אמיתית.' },
+  { emoji: '🪙', title: 'קריפטו',       desc: 'מטבעות דיגיטליים — זהירות, מאוד מסוכן ותנודתי!' },
+  { emoji: '🎯', title: 'הציון שלנו',    desc: 'מ-0 עד 100. ככל שהציון גבוה יותר — הנכס נראה לנו יציב יותר.' },
+];
+
+const HelpBottomSheet = ({ open, onClose, isDesktop }) => {
+  const [mounted, setMounted] = useState(open);
+
+  useEffect(() => {
+    if (open) setMounted(true);
+    else {
+      const t = setTimeout(() => setMounted(false), 320);
+      return () => clearTimeout(t);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [open, onClose]);
+
+  if (!mounted) return null;
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 1500,
+      display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+      pointerEvents: open ? 'auto' : 'none'
+    }}>
+      {/* Backdrop */}
+      <div onClick={onClose} style={{
+        position: 'absolute', inset: 0,
+        background: 'rgba(12,30,78,0.5)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        opacity: open ? 1 : 0,
+        transition: 'opacity 0.32s var(--ios-soft)'
+      }} />
+
+      {/* Sheet */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: isDesktop ? '560px' : '100%',
+        background: 'rgba(255,255,255,0.98)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderRadius: '28px 28px 0 0',
+        padding: isDesktop ? '28px 32px 36px' : '22px 22px 32px',
+        paddingBottom: 'max(32px, env(safe-area-inset-bottom))',
+        boxShadow: '0 -24px 64px rgba(12,30,78,0.25)',
+        transform: open ? 'translateY(0)' : 'translateY(100%)',
+        transition: 'transform 0.42s var(--ios-spring)',
+        maxHeight: '85vh',
+        overflowY: 'auto'
+      }}>
+        {/* Handle */}
+        <div style={{
+          width: '44px', height: '5px', borderRadius: '3px',
+          background: 'rgba(12,30,78,0.18)',
+          margin: '0 auto 18px'
+        }} />
+
+        <h2 style={{
+          margin: '0 0 4px', fontSize: isDesktop ? '26px' : '22px',
+          fontWeight: 700, color: '#0c1e4e', letterSpacing: '-0.02em'
+        }}>איך זה עובד? 🚀</h2>
+        <p style={{
+          margin: '0 0 22px', fontSize: '14px', color: '#64748b'
+        }}>כל מה שכדאי לדעת לפני שמתחילים</p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {HELP_CARDS.map((c, i) => (
+            <div key={c.title} style={{
+              display: 'flex', alignItems: 'flex-start', gap: '14px',
+              padding: '16px 18px',
+              background: 'linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04))',
+              borderRadius: '18px',
+              border: '1px solid rgba(59,130,246,0.12)',
+              animation: `slide-up-in 0.5s var(--ios-spring) ${0.08 + i * 0.07}s both`
+            }}>
+              <div style={{
+                width: '44px', height: '44px', borderRadius: '14px', flexShrink: 0,
+                background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '22px',
+                boxShadow: '0 6px 16px rgba(30,58,138,0.25)'
+              }}>{c.emoji}</div>
+              <div style={{ flex: 1, paddingTop: '2px' }}>
+                <div style={{ fontSize: '16px', fontWeight: 600, color: '#0c1e4e', marginBottom: '4px' }}>{c.title}</div>
+                <div style={{ fontSize: '14px', color: '#475569', lineHeight: 1.55 }}>{c.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button onClick={onClose} className="bb-press" style={{
+          marginTop: '22px', width: '100%',
+          padding: '16px', borderRadius: '16px', border: 'none',
+          background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)',
+          color: 'white', fontSize: '16px', fontWeight: 600, cursor: 'pointer',
+          boxShadow: '0 8px 24px rgba(30,58,138,0.28)',
+          animation: `slide-up-in 0.5s var(--ios-spring) ${0.08 + HELP_CARDS.length * 0.07}s both`
+        }}>הבנתי, תודה! ✨</button>
+      </div>
+    </div>
+  );
+};
+
+// ============================================================
+// HELP FAB  (floating question-mark button, always visible)
+// ============================================================
+
+const HelpFAB = ({ onClick, isDesktop }) => (
+  <button onClick={onClick} aria-label="עזרה · איך זה עובד" className="bb-press" style={{
+    position: 'fixed',
+    top: isDesktop ? '24px' : '16px',
+    left: isDesktop ? '24px' : '16px',
+    width: isDesktop ? '48px' : '44px',
+    height: isDesktop ? '48px' : '44px',
+    borderRadius: '50%',
+    border: 'none',
+    cursor: 'pointer',
+    background: 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%)',
+    color: 'white',
+    fontSize: isDesktop ? '22px' : '20px',
+    fontWeight: 700,
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    zIndex: 120,
+    animation: 'fab-pulse 2.6s var(--ios-soft) infinite'
+  }}>?</button>
+);
 
 // ============================================================
 // FLOATING TAB BAR
@@ -1070,28 +1247,28 @@ const FloatingTabBar = ({ active, onChange, isDesktop }) => {
   ];
 
   return (
-    <nav style={{
+    <nav className="bb-glass" style={{
       position: 'fixed',
       bottom: isDesktop ? '24px' : '16px',
       left: '50%',
       transform: 'translateX(-50%)',
-      background: 'rgba(255,255,255,0.95)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
+      background: 'rgba(255,255,255,0.72)',
       borderRadius: '28px',
-      boxShadow: '0 8px 32px rgba(30, 58, 138, 0.15), 0 0 0 1px rgba(255,255,255,0.8)',
+      boxShadow: '0 1px 2px rgba(0,0,0,0.05), 0 8px 32px rgba(30, 58, 138, 0.18), 0 0 0 1px rgba(255,255,255,0.6)',
       display: 'flex',
       padding: isDesktop ? '8px 12px' : '6px 8px',
       gap: isDesktop ? '8px' : '4px',
-      zIndex: 100
+      zIndex: 100,
+      paddingBottom: isDesktop ? '8px' : 'max(6px, env(safe-area-inset-bottom, 6px))'
     }}>
       {tabs.map(tab => (
-        <button 
-          key={tab.id} 
-          onClick={() => onChange(tab.id)} 
+        <button
+          key={tab.id}
+          onClick={() => onChange(tab.id)}
+          className="bb-press"
           style={{
-            background: active === tab.id 
-              ? 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' 
+            background: active === tab.id
+              ? 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)'
               : 'transparent',
             border: 'none',
             borderRadius: '20px',
@@ -1101,11 +1278,12 @@ const FloatingTabBar = ({ active, onChange, isDesktop }) => {
             alignItems: 'center',
             gap: isDesktop ? '8px' : '2px',
             padding: isDesktop ? '12px 20px' : '10px 14px',
-            transition: 'all 0.2s ease',
-            minWidth: isDesktop ? 'auto' : '56px'
+            transition: 'background 0.32s var(--ios-spring), color 0.32s var(--ios-spring), transform 0.22s var(--ios-spring)',
+            minWidth: isDesktop ? 'auto' : '56px',
+            boxShadow: active === tab.id ? '0 6px 16px rgba(30,58,138,0.3)' : 'none'
           }}
-          onMouseEnter={e => { if (active !== tab.id) e.target.style.background = 'rgba(59,130,246,0.1)' }}
-          onMouseLeave={e => { if (active !== tab.id) e.target.style.background = 'transparent' }}
+          onMouseEnter={e => { if (active !== tab.id) e.currentTarget.style.background = 'rgba(59,130,246,0.1)' }}
+          onMouseLeave={e => { if (active !== tab.id) e.currentTarget.style.background = 'transparent' }}
         >
           <span style={{ 
             fontSize: isDesktop ? '20px' : '22px', 
@@ -1234,25 +1412,31 @@ const AssetCard = ({ asset, index, onClick, isDesktop }) => {
   const isUp = asset.change >= 0;
   const isCrypto = asset.type === 'crypto';
 
+  // Cap stagger delay so deep items don't wait forever (first 12 get the fancy entrance).
+  const staggerDelay = Math.min(index, 11) * 0.035;
+
   return (
-    <div onClick={onClick} style={{
-      background: 'rgba(255,255,255,0.8)',
-      backdropFilter: 'blur(20px)',
-      borderRadius: '20px',
-      padding: isDesktop ? '20px' : '16px',
-      cursor: 'pointer',
-      border: '1px solid rgba(255,255,255,0.9)',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
-      transition: 'all 0.25s ease'
-    }}
-    onMouseEnter={e => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = '0 12px 40px rgba(59,130,246,0.12)';
-    }}
-    onMouseLeave={e => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.04)';
-    }}
+    <div
+      onClick={onClick}
+      className="bb-press bb-glass"
+      style={{
+        background: 'rgba(255,255,255,0.82)',
+        borderRadius: '20px',
+        padding: isDesktop ? '20px' : '16px',
+        cursor: 'pointer',
+        border: '1px solid rgba(255,255,255,0.9)',
+        boxShadow: 'var(--shadow-md)',
+        willChange: 'transform, box-shadow',
+        animation: `card-in 0.55s var(--ios-spring) ${staggerDelay}s both`
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-4px) scale(1.005)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-xl)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+      }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: isDesktop ? '16px' : '12px' }}>
         <div style={{
@@ -1318,7 +1502,7 @@ const StocksScreen = ({ onSelect, isDesktop }) => {
   );
 
   return (
-    <div style={{
+    <div className="bb-tab-content" style={{
       padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '900px',
@@ -1402,7 +1586,7 @@ const CryptoScreen = ({ onSelect, isDesktop }) => {
   );
 
   return (
-    <div style={{
+    <div className="bb-tab-content" style={{
       padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '900px',
@@ -1483,8 +1667,8 @@ const CompareScreen = ({ isDesktop }) => {
   ];
 
   return (
-    <div style={{ 
-      padding: isDesktop ? '32px 48px' : '20px', 
+    <div className="bb-tab-content" style={{
+      padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '800px',
       margin: '0 auto'
@@ -1573,8 +1757,8 @@ const ExchangesScreen = ({ onSelect, isDesktop }) => {
   const filtered = filter === 'all' ? exchangesData : exchangesData.filter(e => e.type === filter);
 
   return (
-    <div style={{ 
-      padding: isDesktop ? '32px 48px' : '20px', 
+    <div className="bb-tab-content" style={{
+      padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '900px',
       margin: '0 auto'
@@ -1667,19 +1851,114 @@ const ExchangesScreen = ({ onSelect, isDesktop }) => {
 // LEARN SCREEN
 // ============================================================
 
-const LearnScreen = ({ onSelect, isDesktop }) => (
-  <div style={{ 
-    padding: isDesktop ? '32px 48px' : '20px', 
+// Pick a "Stock of the Day" deterministically (same for everyone, different each day).
+// Keeps it fresh without changing mid-session.
+const getStockOfTheDay = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+  const eligible = stocksData.filter(s => s.score >= 70);
+  return eligible[dayOfYear % eligible.length];
+};
+
+const StockOfTheDay = ({ stock, onOpen, isDesktop }) => {
+  const info = getScoreInfo(stock.score);
+  const isUp = stock.change >= 0;
+  return (
+    <div onClick={onOpen} className="bb-press" style={{
+      cursor: 'pointer',
+      borderRadius: '24px',
+      padding: isDesktop ? '26px' : '20px',
+      marginBottom: isDesktop ? '32px' : '24px',
+      background: 'linear-gradient(140deg, #0c1e4e 0%, #1e3a8a 55%, #3b82f6 100%)',
+      color: 'white',
+      boxShadow: '0 1px 2px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.1), 0 24px 64px rgba(30,58,138,0.25)',
+      position: 'relative', overflow: 'hidden',
+      animation: 'slide-up-in 0.6s var(--ios-spring) both'
+    }}>
+      {/* Decorative orb */}
+      <div style={{
+        position: 'absolute', top: '-40px', right: '-40px',
+        width: '200px', height: '200px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(139,92,246,0.35), transparent 70%)',
+        pointerEvents: 'none'
+      }} />
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', position: 'relative' }}>
+        <span style={{
+          fontSize: '11px', letterSpacing: '2px', fontWeight: 600,
+          padding: '5px 12px', borderRadius: '20px',
+          background: 'rgba(255,255,255,0.14)',
+          border: '1px solid rgba(255,255,255,0.22)'
+        }}>🔥 המניה של היום</span>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap', position: 'relative' }}>
+        <div>
+          <div style={{ fontSize: isDesktop ? '32px' : '26px', fontWeight: 700, letterSpacing: '-0.02em' }}>{stock.name}</div>
+          <div style={{ opacity: 0.78, fontSize: '14px', marginTop: '2px' }}>{stock.symbol} · {stock.exchange}</div>
+        </div>
+        <div style={{ textAlign: 'left' }}>
+          <div style={{ fontSize: isDesktop ? '28px' : '22px', fontWeight: 700 }}>{formatPrice(stock.price, stock.type, stock.exchange)}</div>
+          <div style={{ fontSize: '14px', fontWeight: 600, color: isUp ? '#86efac' : '#fca5a5' }}>
+            {isUp ? '↑' : '↓'} {Math.abs(stock.change)}%
+          </div>
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: '18px', padding: '14px 16px',
+        background: 'rgba(255,255,255,0.1)',
+        borderRadius: '16px',
+        display: 'flex', alignItems: 'center', gap: '14px',
+        border: '1px solid rgba(255,255,255,0.14)',
+        position: 'relative'
+      }}>
+        <Sparkline data={stock.history} color="rgba(255,255,255,0.95)" width={isDesktop ? 140 : 96} height={42} />
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: '11px', opacity: 0.7, letterSpacing: '1px' }}>הציון שלנו</div>
+          <div style={{ fontSize: '26px', fontWeight: 700, color: '#86efac' }}>{stock.score} <span style={{ fontSize: '14px', opacity: 0.7 }}>/100</span></div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: '18px', position: 'relative' }}>
+        <div style={{ fontSize: '12px', opacity: 0.72, marginBottom: '6px', letterSpacing: '0.5px' }}>מה שתפס לנו את העין</div>
+        <p style={{ margin: 0, fontSize: isDesktop ? '16px' : '15px', lineHeight: 1.6, opacity: 0.95 }}>
+          {stock.reason}
+        </p>
+      </div>
+
+      <div style={{
+        marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        position: 'relative'
+      }}>
+        <span style={{ fontSize: '11px', opacity: 0.7 }}>💡 זו דעה אישית, לא ייעוץ השקעות</span>
+        <span style={{
+          fontSize: '14px', fontWeight: 600,
+          padding: '10px 18px', borderRadius: '14px',
+          background: 'rgba(255,255,255,0.18)',
+          border: '1px solid rgba(255,255,255,0.28)'
+        }}>קרא עוד ←</span>
+      </div>
+    </div>
+  );
+};
+
+const LearnScreen = ({ onSelect, onSelectStock, isDesktop }) => (
+  <div className="bb-tab-content" style={{
+    padding: isDesktop ? '32px 48px' : '20px',
     paddingBottom: '120px',
     maxWidth: '800px',
     margin: '0 auto'
   }}>
-    <div style={{ textAlign: 'center', marginBottom: isDesktop ? '32px' : '24px' }}>
-      <h2 style={{ fontSize: isDesktop ? '32px' : '22px', color: '#1e3a8a', fontWeight: '700', marginBottom: '8px' }}>
+    <div style={{ textAlign: 'center', marginBottom: isDesktop ? '28px' : '22px' }}>
+      <h2 style={{ fontSize: isDesktop ? '32px' : '22px', color: '#1e3a8a', fontWeight: '700', marginBottom: '8px', letterSpacing: '-0.02em' }}>
         📚 למד
       </h2>
       <p style={{ color: '#64748b', fontSize: isDesktop ? '16px' : '14px' }}>הכל בשפה פשוטה</p>
     </div>
+
+    <StockOfTheDay stock={getStockOfTheDay()} onOpen={() => onSelectStock(getStockOfTheDay())} isDesktop={isDesktop} />
 
     <div style={{ 
       display: 'grid', 
@@ -1906,7 +2185,7 @@ const AssetDetail = ({ asset, onBack, isDesktop }) => {
         </div>
 
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <span style={{ fontSize: '12px', color: '#94a3b8' }}>⚠️ המידע להעשרה בלבד ואינו ייעוץ השקעות</span>
+          <span style={{ fontSize: '12px', color: '#94a3b8' }}>💡 זו דעה אישית שלנו - לא ייעוץ השקעות. כל החלטה על אחריותכם</span>
         </div>
       </div>
     </div>
@@ -2033,12 +2312,16 @@ const LessonDetail = ({ lesson, onBack, isDesktop }) => (
 // ============================================================
 
 const App = () => {
-  const [showOnboarding, setShowOnboarding] = useState(true);
+  // Splash runs once per browser. Fallback: show it if localStorage is blocked.
+  const [showSplash, setShowSplash] = useState(() => {
+    try { return localStorage.getItem(SPLASH_FLAG) !== '1'; } catch (e) { return true; }
+  });
+  const [helpOpen, setHelpOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('stocks');
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [selectedExchange, setSelectedExchange] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
-  
+
   const { width } = useWindowSize();
   const isDesktop = width >= 768;
 
@@ -2050,17 +2333,17 @@ const App = () => {
   };
 
   const renderContent = () => {
-    if (selectedAsset) return <AssetDetail asset={selectedAsset} onBack={() => setSelectedAsset(null)} isDesktop={isDesktop} />;
+    if (selectedAsset)    return <AssetDetail    asset={selectedAsset}       onBack={() => setSelectedAsset(null)}    isDesktop={isDesktop} />;
     if (selectedExchange) return <ExchangeDetail exchange={selectedExchange} onBack={() => setSelectedExchange(null)} isDesktop={isDesktop} />;
-    if (selectedLesson) return <LessonDetail lesson={selectedLesson} onBack={() => setSelectedLesson(null)} isDesktop={isDesktop} />;
+    if (selectedLesson)   return <LessonDetail   lesson={selectedLesson}     onBack={() => setSelectedLesson(null)}   isDesktop={isDesktop} />;
 
     switch (activeTab) {
-      case 'stocks': return <StocksScreen onSelect={setSelectedAsset} isDesktop={isDesktop} />;
-      case 'crypto': return <CryptoScreen onSelect={setSelectedAsset} isDesktop={isDesktop} />;
-      case 'compare': return <CompareScreen isDesktop={isDesktop} />;
+      case 'stocks':    return <StocksScreen    onSelect={setSelectedAsset}    isDesktop={isDesktop} />;
+      case 'crypto':    return <CryptoScreen    onSelect={setSelectedAsset}    isDesktop={isDesktop} />;
+      case 'compare':   return <CompareScreen                                  isDesktop={isDesktop} />;
       case 'exchanges': return <ExchangesScreen onSelect={setSelectedExchange} isDesktop={isDesktop} />;
-      case 'learn': return <LearnScreen onSelect={setSelectedLesson} isDesktop={isDesktop} />;
-      default: return <StocksScreen onSelect={setSelectedAsset} isDesktop={isDesktop} />;
+      case 'learn':     return <LearnScreen     onSelect={setSelectedLesson}   onSelectStock={setSelectedAsset} isDesktop={isDesktop} />;
+      default:          return <StocksScreen    onSelect={setSelectedAsset}    isDesktop={isDesktop} />;
     }
   };
 
@@ -2068,9 +2351,11 @@ const App = () => {
     <div dir="rtl" style={{
       minHeight: '100vh',
       background: 'linear-gradient(180deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%)',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif'
     }}>
-      {showOnboarding && <Onboarding onComplete={() => setShowOnboarding(false)} />}
+      {showSplash && <SplashScreen onDone={() => setShowSplash(false)} />}
+      <HelpFAB onClick={() => setHelpOpen(true)} isDesktop={isDesktop} />
+      <HelpBottomSheet open={helpOpen} onClose={() => setHelpOpen(false)} isDesktop={isDesktop} />
       {renderContent()}
       <FloatingTabBar active={activeTab} onChange={handleTabChange} isDesktop={isDesktop} />
     </div>
