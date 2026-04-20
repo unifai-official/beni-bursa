@@ -1124,6 +1124,77 @@ const FloatingTabBar = ({ active, onChange, isDesktop }) => {
 };
 
 // ============================================================
+// SEARCH BAR
+// ============================================================
+
+const SearchBar = ({ value, onChange, placeholder, isDesktop }) => (
+  <div style={{
+    position: 'relative',
+    marginBottom: isDesktop ? '20px' : '16px'
+  }}>
+    <span style={{
+      position: 'absolute',
+      right: isDesktop ? '18px' : '14px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      fontSize: isDesktop ? '18px' : '16px',
+      pointerEvents: 'none',
+      opacity: 0.6
+    }}>🔍</span>
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      dir="rtl"
+      style={{
+        width: '100%',
+        padding: isDesktop ? '14px 48px 14px 44px' : '12px 40px 12px 36px',
+        borderRadius: '16px',
+        border: '1px solid rgba(255,255,255,0.9)',
+        background: 'rgba(255,255,255,0.85)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        fontSize: isDesktop ? '15px' : '14px',
+        color: '#1e3a8a',
+        outline: 'none',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+        fontFamily: 'inherit',
+        boxSizing: 'border-box',
+        transition: 'box-shadow 0.2s'
+      }}
+      onFocus={e => e.target.style.boxShadow = '0 0 0 3px rgba(59,130,246,0.18), 0 4px 20px rgba(0,0,0,0.04)'}
+      onBlur={e => e.target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.04)'}
+    />
+    {value && (
+      <button
+        onClick={() => onChange('')}
+        aria-label="נקה חיפוש"
+        style={{
+          position: 'absolute',
+          left: isDesktop ? '12px' : '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'rgba(100,116,139,0.15)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '24px',
+          height: '24px',
+          fontSize: '12px',
+          color: '#64748b',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 0,
+          lineHeight: 1
+        }}
+      >✕</button>
+    )}
+  </div>
+);
+
+// ============================================================
 // HEADER
 // ============================================================
 
@@ -1237,38 +1308,81 @@ const AssetCard = ({ asset, index, onClick, isDesktop }) => {
 // ============================================================
 
 const StocksScreen = ({ onSelect, isDesktop }) => {
+  const [query, setQuery] = useState('');
   const sorted = [...stocksData].sort((a, b) => b.score - a.score);
 
+  const q = query.toLowerCase().trim();
+  const filtered = q === '' ? sorted : sorted.filter(asset =>
+    asset.name.toLowerCase().includes(q) ||
+    asset.symbol.toLowerCase().includes(q)
+  );
+
   return (
-    <div style={{ 
-      padding: isDesktop ? '32px 48px' : '20px', 
+    <div style={{
+      padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '900px',
       margin: '0 auto'
     }}>
-      <div style={{ textAlign: 'center', marginBottom: isDesktop ? '32px' : '24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: isDesktop ? '24px' : '18px' }}>
         <h2 style={{ fontSize: isDesktop ? '32px' : '22px', color: '#1e3a8a', fontWeight: '700', marginBottom: '8px' }}>
           📊 מניות
         </h2>
         <p style={{ color: '#64748b', fontSize: isDesktop ? '16px' : '14px' }}>חלק מחברות אמיתיות</p>
       </div>
 
+      <SearchBar
+        value={query}
+        onChange={setQuery}
+        placeholder="חיפוש מניה לפי שם או סמל..."
+        isDesktop={isDesktop}
+      />
+
       <div style={{
         background: 'rgba(59,130,246,0.08)', borderRadius: '16px', padding: isDesktop ? '16px 24px' : '14px',
-        marginBottom: isDesktop ? '28px' : '20px', fontSize: isDesktop ? '15px' : '13px', color: '#3b82f6', textAlign: 'center'
+        marginBottom: isDesktop ? '20px' : '16px', fontSize: isDesktop ? '15px' : '13px', color: '#3b82f6', textAlign: 'center'
       }}>
         💡 מניה = קונים חלק קטן מחברה. אם החברה מצליחה - מרוויחים!
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        gap: isDesktop ? '12px' : '10px' 
-      }}>
-        {sorted.map((asset, i) => (
-          <AssetCard key={asset.id} asset={asset} index={i} onClick={() => onSelect(asset)} isDesktop={isDesktop} />
-        ))}
-      </div>
+      {q !== '' && (
+        <div style={{
+          fontSize: isDesktop ? '13px' : '12px',
+          color: '#64748b',
+          marginBottom: '12px',
+          textAlign: 'center'
+        }}>
+          נמצאו {filtered.length} תוצאות עבור "{query}"
+        </div>
+      )}
+
+      {filtered.length === 0 ? (
+        <div style={{
+          textAlign: 'center',
+          padding: isDesktop ? '60px 24px' : '40px 16px',
+          background: 'rgba(255,255,255,0.7)',
+          borderRadius: '20px',
+          marginTop: '8px'
+        }}>
+          <div style={{ fontSize: isDesktop ? '48px' : '40px', marginBottom: '12px' }}>🔍</div>
+          <div style={{ fontSize: isDesktop ? '18px' : '16px', fontWeight: '600', color: '#1e3a8a', marginBottom: '6px' }}>
+            לא נמצאו תוצאות
+          </div>
+          <div style={{ fontSize: isDesktop ? '14px' : '13px', color: '#64748b' }}>
+            נסי לחפש שם אחר או סמל
+          </div>
+        </div>
+      ) : (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: isDesktop ? '12px' : '10px'
+        }}>
+          {filtered.map((asset, i) => (
+            <AssetCard key={asset.id} asset={asset} index={i} onClick={() => onSelect(asset)} isDesktop={isDesktop} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -1278,34 +1392,77 @@ const StocksScreen = ({ onSelect, isDesktop }) => {
 // ============================================================
 
 const CryptoScreen = ({ onSelect, isDesktop }) => {
+  const [query, setQuery] = useState('');
   const sorted = [...cryptoData].sort((a, b) => b.score - a.score);
 
+  const q = query.toLowerCase().trim();
+  const filtered = q === '' ? sorted : sorted.filter(asset =>
+    asset.name.toLowerCase().includes(q) ||
+    asset.symbol.toLowerCase().includes(q)
+  );
+
   return (
-    <div style={{ 
-      padding: isDesktop ? '32px 48px' : '20px', 
+    <div style={{
+      padding: isDesktop ? '32px 48px' : '20px',
       paddingBottom: '120px',
       maxWidth: '900px',
       margin: '0 auto'
     }}>
-      <div style={{ textAlign: 'center', marginBottom: isDesktop ? '32px' : '24px' }}>
+      <div style={{ textAlign: 'center', marginBottom: isDesktop ? '24px' : '18px' }}>
         <h2 style={{ fontSize: isDesktop ? '32px' : '22px', color: '#1e3a8a', fontWeight: '700', marginBottom: '8px' }}>
           🪙 קריפטו
         </h2>
         <p style={{ color: '#64748b', fontSize: isDesktop ? '16px' : '14px' }}>מטבעות דיגיטליים</p>
       </div>
 
+      <SearchBar
+        value={query}
+        onChange={setQuery}
+        placeholder="חיפוש מטבע לפי שם או סמל..."
+        isDesktop={isDesktop}
+      />
+
       <div style={{
         background: 'rgba(239,68,68,0.08)', borderRadius: '16px', padding: isDesktop ? '16px 24px' : '14px',
-        marginBottom: isDesktop ? '28px' : '20px', fontSize: isDesktop ? '15px' : '13px', color: '#dc2626', textAlign: 'center'
+        marginBottom: isDesktop ? '20px' : '16px', fontSize: isDesktop ? '15px' : '13px', color: '#dc2626', textAlign: 'center'
       }}>
         ⚠️ קריפטו מאוד מסוכן! רק כסף שמוכנים להפסיד
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: isDesktop ? '12px' : '10px' }}>
-        {sorted.map((asset, i) => (
-          <AssetCard key={asset.id} asset={asset} index={i} onClick={() => onSelect(asset)} isDesktop={isDesktop} />
-        ))}
-      </div>
+      {q !== '' && (
+        <div style={{
+          fontSize: isDesktop ? '13px' : '12px',
+          color: '#64748b',
+          marginBottom: '12px',
+          textAlign: 'center'
+        }}>
+          נמצאו {filtered.length} תוצאות עבור "{query}"
+        </div>
+      )}
+
+      {filtered.length === 0 ? (
+        <div style={{
+          textAlign: 'center',
+          padding: isDesktop ? '60px 24px' : '40px 16px',
+          background: 'rgba(255,255,255,0.7)',
+          borderRadius: '20px',
+          marginTop: '8px'
+        }}>
+          <div style={{ fontSize: isDesktop ? '48px' : '40px', marginBottom: '12px' }}>🔍</div>
+          <div style={{ fontSize: isDesktop ? '18px' : '16px', fontWeight: '600', color: '#1e3a8a', marginBottom: '6px' }}>
+            לא נמצאו תוצאות
+          </div>
+          <div style={{ fontSize: isDesktop ? '14px' : '13px', color: '#64748b' }}>
+            נסי לחפש שם אחר או סמל
+          </div>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: isDesktop ? '12px' : '10px' }}>
+          {filtered.map((asset, i) => (
+            <AssetCard key={asset.id} asset={asset} index={i} onClick={() => onSelect(asset)} isDesktop={isDesktop} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
