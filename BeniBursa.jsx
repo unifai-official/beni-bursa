@@ -5,53 +5,95 @@ const { useState, useEffect } = React;
 // ============================================================
 
 const stocksData = [
-  { 
-    id: 1, name: 'אפל', symbol: 'AAPL', score: 85, risk: 'low', price: 178.52, change: 1.2,
+  {
+    id: 1, name: 'אפל', symbol: 'AAPL', score: 85, risk: 'low', price: 178.52,
+    change: 1.2, changeWeek: 2.1, changeMonth: 4.5, changeYear: 18.3,
     exchange: 'NASDAQ', type: 'stock',
     history: [165, 168, 172, 169, 175, 178, 176, 180, 177, 178.52],
     reason: 'החברה מרוויחה הרבה כסף ואנשים אוהבים את המוצרים שלה',
     good: ['רווחים יציבים', 'מותג חזק', 'מוצרים פופולריים'],
     bad: ['תחרות מסין', 'מחירים גבוהים']
   },
-  { 
-    id: 2, name: 'טסלה', symbol: 'TSLA', score: 55, risk: 'high', price: 245.30, change: -2.8,
+  {
+    id: 2, name: 'טסלה', symbol: 'TSLA', score: 55, risk: 'high', price: 245.30,
+    change: -2.8, changeWeek: -4.5, changeMonth: -8.2, changeYear: -15.4,
     exchange: 'NASDAQ', type: 'stock',
     history: [220, 260, 240, 280, 250, 230, 270, 255, 240, 245.30],
     reason: 'המחיר קופץ הרבה למעלה ולמטה, קשה לדעת מה יקרה',
     good: ['טכנולוגיה מתקדמת', 'מנהיג בשוק'],
     bad: ['תנודתיות גבוהה', 'תחרות גוברת']
   },
-  { 
-    id: 3, name: 'מיקרוסופט', symbol: 'MSFT', score: 88, risk: 'low', price: 378.91, change: 0.8,
+  {
+    id: 3, name: 'מיקרוסופט', symbol: 'MSFT', score: 88, risk: 'low', price: 378.91,
+    change: 0.8, changeWeek: 1.5, changeMonth: 3.8, changeYear: 22.1,
     exchange: 'NASDAQ', type: 'stock',
     history: [350, 355, 360, 358, 365, 370, 368, 375, 377, 378.91],
     reason: 'החברה גדלה בקצב יציב והרבה עסקים משתמשים במוצרים שלה',
     good: ['צמיחה יציבה', 'מובילה בענן', 'AI חזק'],
     bad: ['מחיר גבוה כבר']
   },
-  { 
-    id: 4, name: 'אמזון', symbol: 'AMZN', score: 78, risk: 'medium', price: 178.25, change: 1.5,
+  {
+    id: 4, name: 'אמזון', symbol: 'AMZN', score: 78, risk: 'medium', price: 178.25,
+    change: 1.5, changeWeek: 2.8, changeMonth: 5.2, changeYear: 28.7,
     exchange: 'NASDAQ', type: 'stock',
     history: [160, 165, 162, 170, 168, 175, 172, 176, 177, 178.25],
     reason: 'אנשים קונים הרבה באינטרנט והחברה ממשיכה לגדול',
     good: ['שליטה במסחר', 'AWS חזק'],
     bad: ['רווחים נמוכים', 'תחרות']
   },
-  { 
-    id: 5, name: 'גוגל', symbol: 'GOOGL', score: 82, risk: 'low', price: 141.80, change: 0.5,
+  {
+    id: 5, name: 'גוגל', symbol: 'GOOGL', score: 82, risk: 'low', price: 141.80,
+    change: 0.5, changeWeek: 1.2, changeMonth: 2.9, changeYear: 15.6,
     exchange: 'NASDAQ', type: 'stock',
     history: [130, 132, 135, 134, 138, 137, 140, 139, 141, 141.80],
     reason: 'כמעט כולם משתמשים בגוגל והחברה מרוויחה טוב',
     good: ['שליטה בחיפוש', 'יוטיוב', 'ענן'],
     bad: ['תלות בפרסום']
   },
-  { 
-    id: 6, name: 'נבידיה', symbol: 'NVDA', score: 80, risk: 'medium', price: 495.00, change: 2.1,
+  {
+    id: 6, name: 'נבידיה', symbol: 'NVDA', score: 80, risk: 'medium', price: 495.00,
+    change: 2.1, changeWeek: 3.5, changeMonth: 8.4, changeYear: 65.2,
     exchange: 'NASDAQ', type: 'stock',
     history: [420, 440, 460, 450, 480, 470, 490, 485, 500, 495.00],
     reason: 'מובילה בשבבים לבינה מלאכותית, ביקוש גבוה מאוד',
     good: ['מובילה ב-AI', 'צמיחה מהירה'],
     bad: ['מחיר גבוה', 'תחרות צפויה']
+  },
+  {
+    id: 7, name: 'מטא', symbol: 'META', score: 78, risk: 'medium', price: 512.50,
+    change: 1.8, changeWeek: 2.4, changeMonth: 6.1, changeYear: 42.8,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [450, 465, 480, 475, 490, 505, 498, 510, 508, 512.50],
+    reason: 'הבעלים של פייסבוק ואינסטגרם, משקיעה הרבה במציאות מדומה ו-AI',
+    good: ['מיליארדי משתמשים', 'רווחים גבוהים מפרסום', 'השקעה ב-AI'],
+    bad: ['תלות בפרסום', 'אתגרי רגולציה', 'השקעות יקרות ב-VR']
+  },
+  {
+    id: 8, name: 'נטפליקס', symbol: 'NFLX', score: 72, risk: 'medium', price: 628.90,
+    change: -0.5, changeWeek: 1.2, changeMonth: 4.5, changeYear: 35.6,
+    exchange: 'NASDAQ', type: 'stock',
+    history: [560, 580, 600, 595, 615, 625, 620, 635, 630, 628.90],
+    reason: 'פלטפורמת הסטרימינג הגדולה בעולם, חזרה לצמיחה אחרי איבוד מנויים',
+    good: ['מותג חזק', 'תוכן מקורי', 'התרחבות גלובלית'],
+    bad: ['תחרות מדיסני ואחרים', 'עלויות תוכן גבוהות']
+  },
+  {
+    id: 9, name: 'דיסני', symbol: 'DIS', score: 55, risk: 'medium', price: 103.40,
+    change: 0.3, changeWeek: -1.2, changeMonth: -3.5, changeYear: -8.2,
+    exchange: 'NYSE', type: 'stock',
+    history: [115, 112, 108, 110, 106, 104, 107, 102, 104, 103.40],
+    reason: 'ענקית בידור עם סרטים, פארקים ו-Disney+, אבל מתמודדת עם אתגרים',
+    good: ['מותגים אהובים', 'פארקי שעשועים', 'ספרייה עצומה של תוכן'],
+    bad: ['הפסדים בסטרימינג', 'תחרות חזקה', 'חוב גבוה']
+  },
+  {
+    id: 10, name: 'קוקה קולה', symbol: 'KO', score: 75, risk: 'low', price: 64.20,
+    change: 0.2, changeWeek: 0.8, changeMonth: 1.5, changeYear: 8.4,
+    exchange: 'NYSE', type: 'stock',
+    history: [59, 60, 61, 60.5, 62, 63, 62.5, 63.5, 64, 64.20],
+    reason: 'מותג משקאות אייקוני, יציב ומשלם דיבידנדים כבר 60 שנה',
+    good: ['יציבות גבוהה', 'דיבידנדים קבועים', 'מותג עולמי'],
+    bad: ['צמיחה איטית', 'מגמת בריאות נגד סוכר']
   },
 ];
 
@@ -60,32 +102,36 @@ const stocksData = [
 // ============================================================
 
 const cryptoData = [
-  { 
-    id: 101, name: 'ביטקוין', symbol: 'BTC', score: 70, risk: 'high', price: 43250, change: 2.5,
+  {
+    id: 101, name: 'ביטקוין', symbol: 'BTC', score: 70, risk: 'high', price: 43250,
+    change: 2.5, changeWeek: 4.2, changeMonth: -5.8, changeYear: 58.4,
     exchange: 'Crypto', type: 'crypto',
     history: [38000, 40000, 42000, 41000, 44000, 43000, 45000, 42500, 43500, 43250],
     reason: 'המטבע הדיגיטלי הראשון והכי מוכר בעולם, אבל מאוד תנודתי',
     good: ['הכי מוכר', 'מוגבל בכמות', 'מקובל בהרבה מקומות'],
     bad: ['תנודתיות קיצונית', 'לא מגובה בכלום', 'רגולציה לא ברורה']
   },
-  { 
-    id: 102, name: 'את\'ריום', symbol: 'ETH', score: 65, risk: 'high', price: 2280, change: 1.8,
+  {
+    id: 102, name: 'את\'ריום', symbol: 'ETH', score: 65, risk: 'high', price: 2280,
+    change: 1.8, changeWeek: 3.1, changeMonth: -2.5, changeYear: 45.2,
     exchange: 'Crypto', type: 'crypto',
     history: [2000, 2100, 2200, 2150, 2300, 2250, 2350, 2200, 2300, 2280],
     reason: 'פלטפורמה לבניית אפליקציות, אבל התחרות גוברת',
     good: ['טכנולוגיה חכמה', 'הרבה שימושים', 'קהילה חזקה'],
     bad: ['עמלות גבוהות', 'תחרות', 'מסובך להבנה']
   },
-  { 
-    id: 103, name: 'סולנה', symbol: 'SOL', score: 50, risk: 'high', price: 98.50, change: -3.2,
+  {
+    id: 103, name: 'סולנה', symbol: 'SOL', score: 50, risk: 'high', price: 98.50,
+    change: -3.2, changeWeek: -5.4, changeMonth: -12.3, changeYear: 82.5,
     exchange: 'Crypto', type: 'crypto',
     history: [80, 90, 100, 95, 110, 105, 100, 95, 100, 98.50],
     reason: 'מהיר וזול אבל היו בעיות טכניות בעבר',
     good: ['מהיר מאוד', 'עמלות זולות'],
     bad: ['בעיות יציבות', 'פחות מבוזר', 'סיכון גבוה']
   },
-  { 
-    id: 104, name: 'קרדאנו', symbol: 'ADA', score: 45, risk: 'high', price: 0.58, change: -1.5,
+  {
+    id: 104, name: 'קרדאנו', symbol: 'ADA', score: 45, risk: 'high', price: 0.58,
+    change: -1.5, changeWeek: -2.8, changeMonth: -8.5, changeYear: -22.4,
     exchange: 'Crypto', type: 'crypto',
     history: [0.50, 0.55, 0.60, 0.58, 0.62, 0.55, 0.58, 0.56, 0.59, 0.58],
     reason: 'פיתוח איטי והרבה הבטחות שעוד לא התממשו',
@@ -964,6 +1010,28 @@ const AssetDetail = ({ asset, onBack, isDesktop }) => {
                     <div style={{ fontSize: '16px', fontWeight: '600', color: item.color || '#1e3a8a' }}>{item.value}</div>
                   </div>
                 ))}
+              </div>
+
+              {/* ============ אחוזי שינוי לפי תקופה ============ */}
+              <div style={{ marginTop: '28px' }}>
+                <h4 style={{ fontSize: '14px', color: '#1e3a8a', fontWeight: '600', marginBottom: '14px' }}>
+                  📈 שינוי באחוזים
+                </h4>
+
+                <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  {[
+                    { label: 'יומי', value: asset.change },
+                    { label: 'שבועי', value: asset.changeWeek },
+                    { label: 'חודשי', value: asset.changeMonth },
+                    { label: 'שנתי', value: asset.changeYear },
+                  ].map(item => {
+                    // TODO: כאן את כותבת את הקופסה!
+                    //   - item.label = שם התקופה (למשל "יומי")
+                    //   - item.value = האחוז (מספר, יכול להיות שלילי)
+                    //   ראי הוראות מפורטות בצ'אט.
+                    return null;
+                  })}
+                </div>
               </div>
             </div>
           )}
